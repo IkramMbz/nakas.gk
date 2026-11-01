@@ -3,7 +3,7 @@
     <img
       src="assets/media/img/logo-git.png"
       alt="nakas.gk Logo"
-      width="160"
+      width="120"
     >
   </a>
 
@@ -46,9 +46,9 @@ Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, e
 
 The **Nakas** are a team of diagnostic agents for web development. Each one has its own specialty, and they work side by side in a single dock.
 
-<div align="center">
-  <img src="assets/media/img/dock-nakas.png" alt="The Nakas dock" width="320">
-</div>
+<!-- <div align="center"> -->
+  <img src="assets/media/img/dock-nakas.png" alt="The Nakas dock" width="128">
+<!-- </div> -->
 
 <br>
 
