@@ -16,7 +16,7 @@
     Audit SEO, inspect imports, and analyze your web applications directly from your development environment.
   </p>
 
-  <p>
+  <div>
     <a href="https://github.com/IkramMbz/nakas-gk/releases">
       <img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0">
     </a>
@@ -35,7 +35,7 @@
     <a href="https://react.dev/">
       <img src="assets/media/img/react.svg" alt="React">
     </a>
-  </p>
+  </div>
 
   <!-- <p>
     <a href="https://github.com/IkramMbz/nakas-gk/stargazers">
@@ -49,18 +49,13 @@
     </a>
   </p> -->
 
-  <p>
+  <div>
     <a href="#installation">Installation</a>
-
     <a href="#usage">Usage</a>
-
     <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>
-
     <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>
-
     <a href="LICENSE">License</a>
-  </p>
-
+  </div>
 </div>
 
 **nakas.gk** by Glitch Kids, is a lightweight React Developer Toolkit for auditing, debugging, and optimizing web applications.
