@@ -19,20 +19,15 @@
   <div>
     <a href="https://github.com/IkramMbz/nakas-gk/releases">
       <img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0">
-    </a>
-    <a href="https://github.com/glitchkids">
+    </a><a href="https://github.com/glitchkids">
       <img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite">
-    </a>
-    <a href="LICENSE">
+    </a><a href="LICENSE">
       <img src="assets/media/img/license-mit.svg" alt="MIT License">
-    </a>
-    <a href="https://nodejs.org/">
+    </a><a href="https://nodejs.org/">
       <img src="assets/media/img/nodejs.svg" alt="Node.js">
-    </a>
-    <a href="https://www.typescriptlang.org/">
+    </a><a href="https://www.typescriptlang.org/">
       <img src="assets/media/img/typescript.svg" alt="TypeScript">
-    </a>
-    <a href="https://react.dev/">
+    </a><a href="https://react.dev/">
       <img src="assets/media/img/react.svg" alt="React">
     </a>
   </div>
@@ -49,6 +44,7 @@
     </a>
   </p> -->
 
+
   <div>
     <a href="#installation">Installation</a>
     <a href="#usage">Usage</a>
@@ -57,6 +53,7 @@
     <a href="LICENSE">License</a>
   </div>
 </div>
+
 
 **nakas.gk** by Glitch Kids, is a lightweight React Developer Toolkit for auditing, debugging, and optimizing web applications.
 
