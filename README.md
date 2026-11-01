@@ -21,11 +21,10 @@
     <a href="LICENSE"><img src="assets/media/img/license-mit.svg" alt="MIT License"></a>
     <a href="https://nodejs.org/"><img src="assets/media/img/nodejs.svg" alt="Node.js"></a>
     <a href="https://www.typescriptlang.org/"><img src="assets/media/img/typescript.svg" alt="TypeScript"></a>
-    <a href="https://react.dev/"><img src="assets/media/img/react.svg" alt="React"></a>
   </p>
 
   <p>
-    <strong>Compatible with</strong><br>
+    <strong>Compatible with</strong><br><br>
     <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black" alt="React">
     <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" alt="Next.js">
     <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite">
