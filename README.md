@@ -25,6 +25,18 @@
   </p>
 
   <p>
+    <strong>Compatible with</strong><br>
+    <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black" alt="React">
+    <img src="https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white" alt="Next.js">
+    <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite">
+    <img src="https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=white" alt="Astro">
+    <img src="https://img.shields.io/badge/Vue-4FC08D?logo=vue.js&logoColor=white" alt="Vue">
+    <img src="https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white" alt="Angular">
+    <img src="https://img.shields.io/badge/SvelteKit-FF3E00?logo=svelte&logoColor=white" alt="SvelteKit">
+    <img src="https://img.shields.io/badge/Nuxt-00DC82?logo=nuxt&logoColor=black" alt="Nuxt">
+  </p>
+
+  <p>
     <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="https://github.com/IkramMbz/nakas.gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
