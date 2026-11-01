@@ -1,9 +1,9 @@
 <div align="center">
   <a href="https://github.com/IkramMbz/nakas-gk">
     <img
-      src="assets/media/img/logo-git.svg"
+      src="assets/media/img/logo-git.png"
       alt="nakas.gk Logo"
-      width="140"
+      width="160"
     >
   </a>
 
