@@ -4,7 +4,6 @@
       src="assets/media/img/logo-git.svg"
       alt="nakas.gk Logo"
       width="140"
-      style="border-radius: 8px !important;"
     >
   </a>
 
@@ -16,57 +15,47 @@
     Audit SEO, inspect imports, and analyze your web applications directly from your development environment.
   </p>
 
-  <div>
-    <a href="https://github.com/IkramMbz/nakas-gk/releases">
-      <img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0">
-    </a><a href="https://github.com/glitchkids">
-      <img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite">
-    </a><a href="LICENSE">
-      <img src="assets/media/img/license-mit.svg" alt="MIT License">
-    </a><a href="https://nodejs.org/">
-      <img src="assets/media/img/nodejs.svg" alt="Node.js">
-    </a><a href="https://www.typescriptlang.org/">
-      <img src="assets/media/img/typescript.svg" alt="TypeScript">
-    </a><a href="https://react.dev/">
-      <img src="assets/media/img/react.svg" alt="React">
-    </a>
-  </div>
+  <p>
+    <a href="https://github.com/IkramMbz/nakas-gk/releases"><img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0"></a>
+    <a href="https://github.com/glitchkids"><img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite"></a>
+    <a href="LICENSE"><img src="assets/media/img/license-mit.svg" alt="MIT License"></a>
+    <a href="https://nodejs.org/"><img src="assets/media/img/nodejs.svg" alt="Node.js"></a>
+    <a href="https://www.typescriptlang.org/"><img src="assets/media/img/typescript.svg" alt="TypeScript"></a>
+    <a href="https://react.dev/"><img src="assets/media/img/react.svg" alt="React"></a>
+  </p>
 
-  <!-- <p>
-    <a href="https://github.com/IkramMbz/nakas-gk/stargazers">
-      <img src="https://img.shields.io/github/stars/IkramMbz/nakas-gk?style=flat-square&label=stars" alt="GitHub Stars">
-    </a>
-    <a href="https://github.com/IkramMbz/nakas-gk/issues">
-      <img src="https://img.shields.io/github/issues/IkramMbz/nakas-gk?style=flat-square&label=issues" alt="Open Issues">
-    </a>
-    <a href="https://github.com/IkramMbz/nakas-gk/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/IkramMbz/nakas-gk?style=flat-square&label=contributors" alt="Contributors">
-    </a>
-  </p> -->
-
-
-  <div>
-    <a href="#installation">Installation</a>
-    <a href="#usage">Usage</a>
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>
+  <p>
+    <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="LICENSE">License</a>
-  </div>
-</div>
+  </p>
 
+  <br>
+</div>
 
 **nakas.gk** by Glitch Kids, is a lightweight React Developer Toolkit for auditing, debugging, and optimizing web applications.
 
 Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
-<!-- 🟠 -->
 
 **Note:** nakas.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
-A dock of **Nakas** (diagnostic agents) for web development, framework-agnostic:
+## Meet the Nakas
 
-- **L** — live SEO audit of the displayed page (49 checks, rerun on every DOM change).
-- **Amalia** — project import analysis (missing files, undeclared dependencies, cycles…), run in a locked-down sandbox.
-- **Bob** — skill for creating new Nakas.
+The **Nakas** are a team of diagnostic agents for web development. Each one has its own specialty, and they work side by side in a single dock.
+
+<div align="center">
+  <img src="assets/media/img/dock-nakas.png" alt="The Nakas dock" width="600">
+</div>
+
+<br>
+
+| Naka       | Role                    | What it does                                                                                       |
+| ---------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
+| **L**      | SEO auditor             | Live SEO audit of the displayed page (49 checks, rerun on every DOM change).                       |
+| **Amalia** | Import analyst          | Project import analysis (missing files, undeclared dependencies, cycles…), run in a locked-down sandbox. |
+| **Bob**    | Naka builder            | Skill for creating new Nakas.                                                                      |
 
 The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alter it, and is excluded from the SEO audit. By default it only shows on a local host (localhost, `*.local`, private networks).
 
@@ -143,10 +132,10 @@ void mountNakas({ endpoint: "http://127.0.0.1:4321/api/nakas" }); // ngAfterView
 
 ### Options (`mountNakas` / `<Nakas />`)
 
-| Option            | Default                                  | Purpose                             |
-| ----------------- | ---------------------------------------- | ----------------------------------- |
-| `enabled`         | auto (local host)                        | `true`/`false` to force             |
-| `endpoint`        | `/api/nakas`                             | Base URL of the development API     |
+| Option            | Default                                  | Purpose                         |
+| ----------------- | ---------------------------------------- | ------------------------------- |
+| `enabled`         | auto (local host)                        | `true`/`false` to force         |
+| `endpoint`        | `/api/nakas`                             | Base URL of the development API |
 | `contentSelector` | `main`, `[role=main]`, `article`, `body` | Content area used by the SEO checks |
 
 Server options (`nakas()`, `createNakasHandler()`, `createNakasMiddleware()`, `startNakasServer()`): `root`, `strict` (refuse to run without strong network isolation), `imports.dirs` (default: `src` if it exists, otherwise the whole project).
