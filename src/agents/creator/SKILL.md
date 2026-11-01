@@ -68,6 +68,18 @@ Every part uses exactly:
 - Compact path data (relative commands, no needless decimals). Close subpaths with `z`/`Z`.
 - Put the main silhouette first, then shadows/highlights on top.
 
+## Line endings and delivery
+
+- Write files with LF line endings only, never CRLF. Check with
+  `grep -c $'\r' file.svg` (must print 0).
+- Never put `<metadata>`, XML comments or editor attributes (inkscape:*,
+  sodipodi:*) in the file. Delivery re-adds a C2PA block anyway, so the
+  validator must strip it (see "Known issue").
+- On Windows, saving or pasting a file in an editor can turn LF into CRLF,
+  and Git then warns "CRLF will be replaced by LF". This is not an SVG error.
+  Tell the user once to add `*.svg text eol=lf` to `.gitattributes`, and to
+  pick LF in the editor (VS Code: click CRLF in the status bar).
+
 ## Validation
 
 The user's part validator rejects the following. Make sure none of it appears **inside the `<svg>`**:
@@ -146,27 +158,38 @@ function parse(text) {
     const src = text
         .replace(/<\?xml[\s\S]*?\?>/g, "")
         .replace(/<!--[\s\S]*?-->/g, "")
+        .replace(/<metadata[\s\S]*?<\/metadata>/gi, "") // bloc C2PA ajouté à la livraison
         .trim();
+
     const m = src.match(/^<svg\b([^>]*)>([\s\S]*)<\/svg>$/);
     if (!m) throw new Error("single <svg> root required");
+
     const vb = /\bviewBox="([^"]+)"/.exec(m[1])?.[1];
     if (!vb || !/^\s*-?[\d.]+[\s,]+-?[\d.]+[\s,]+[\d.]+[\s,]+[\d.]+\s*$/.test(vb))
         throw new Error("missing or invalid viewBox");
+
     const inner = m[2].trim();
     if (!inner) throw new Error("no elements");
-    for (const [re, l] of FORBIDDEN) if (re.test(inner)) throw new Error("forbidden: " + l);
-    for (const [, n] of inner.matchAll(/\{\{\s*([^}]*?)\s*\}\}/g))
-        if (!TOKENS.includes(n)) throw new Error("unknown token {{" + n + "}}");
-    if (/\{\{\s/.test(inner) || /\s\}\}/.test(inner)) throw new Error("malformed token");
+
+    for (const [re, label] of FORBIDDEN)
+        if (re.test(inner)) throw new Error("forbidden: " + label);
+
+    for (const [, name] of inner.matchAll(/\{\{\s*([^}]*?)\s*\}\}/g))
+        if (!TOKENS.includes(name)) throw new Error("unknown token {{" + name + "}}");
+    if (/\{\{\s/.test(inner) || /\s\}\}/.test(inner))
+        throw new Error("malformed token");
+
     const stack = [];
     for (const t of inner.matchAll(/<(\/?)([A-Za-z][\w:-]*)[^<>]*?(\/?)>/g)) {
-        if (t[3]) continue;
+        if (t[3]) continue; // balise auto-fermante
         if (!t[1]) stack.push(t[2]);
         else if (stack.pop() !== t[2]) throw new Error("unexpected closing tag " + t[0]);
     }
     if (stack.length) throw new Error("unclosed tag <" + stack.pop() + ">");
+
     const rest = inner.replace(/<[^<>]*>/g, "").trim();
     if (rest) throw new Error("stray text: " + JSON.stringify(rest.slice(0, 120)));
+
     return vb;
 }
 for (const f of process.argv.slice(2)) {

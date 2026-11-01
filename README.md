@@ -1,12 +1,14 @@
-# nakas-gk
-
 <div align="center">
+  <!-- <a href="https://github.com/IkramMbz/nakas-gk"> -->
+    <img
+      src="assets/media/img/nakas-gk.svg"
+      alt="nakas.gk Logo"
+      width="140"
+      style="border-radius: 8px;"
+    >
+  <!-- </a> -->
 
-  <a href="https://github.com/IkramMbz/seo-gk">
-    <img src="assets/media/img/seo-gk.svg" alt="SEO-GK Logo" width="140">
-  </a>
-
-  <h1>SEO-GK</h1>
+  <h1>nakas.gk</h1>
 
   <p>
     <strong>The React Developer Toolkit.</strong>
@@ -15,8 +17,8 @@
   </p>
 
   <p>
-    <a href="https://github.com/IkramMbz/seo-gk/releases">
-      <img src="https://img.shields.io/badge/release-v0.3.3-white" alt="Release v0.3.3">
+    <a href="https://github.com/IkramMbz/nakas-gk/releases">
+      <img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0">
     </a>
     <a href="https://github.com/glitchkids">
       <img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite">
@@ -35,26 +37,26 @@
     </a>
   </p>
 
-  <p>
-    <a href="https://github.com/IkramMbz/seo-gk/stargazers">
-      <img src="https://img.shields.io/github/stars/IkramMbz/seo-gk?style=flat-square&label=stars" alt="GitHub Stars">
+  <!-- <p>
+    <a href="https://github.com/IkramMbz/nakas-gk/stargazers">
+      <img src="https://img.shields.io/github/stars/IkramMbz/nakas-gk?style=flat-square&label=stars" alt="GitHub Stars">
     </a>
-    <a href="https://github.com/IkramMbz/seo-gk/issues">
-      <img src="https://img.shields.io/github/issues/IkramMbz/seo-gk?style=flat-square&label=issues" alt="Open Issues">
+    <a href="https://github.com/IkramMbz/nakas-gk/issues">
+      <img src="https://img.shields.io/github/issues/IkramMbz/nakas-gk?style=flat-square&label=issues" alt="Open Issues">
     </a>
-    <a href="https://github.com/IkramMbz/seo-gk/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/IkramMbz/seo-gk?style=flat-square&label=contributors" alt="Contributors">
+    <a href="https://github.com/IkramMbz/nakas-gk/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/IkramMbz/nakas-gk?style=flat-square&label=contributors" alt="Contributors">
     </a>
-  </p>
+  </p> -->
 
   <p>
     <a href="#installation">Installation</a>
     ·
     <a href="#usage">Usage</a>
     ·
-    <a href="https://github.com/IkramMbz/seo-gk/issues/new">Report a Bug</a>
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>
     ·
-    <a href="https://github.com/IkramMbz/seo-gk/issues/new">Request a Feature</a>
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>
     ·
     <a href="LICENSE">License</a>
   </p>
@@ -81,7 +83,7 @@ The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alt
 ## Installation
 
 ```bash
-pnpm add -D nakas-gk
+pnpm add -D https://github.com/IkramMbz/nakas-gk
 ```
 
 ## Integration (2 steps: client, then server for Amalia)
