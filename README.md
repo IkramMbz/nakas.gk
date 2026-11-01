@@ -1,12 +1,15 @@
+<style>
+  img { border-radius: 8px; }
+</style>
+
 <div align="center">
-  <!-- <a href="https://github.com/IkramMbz/nakas-gk"> -->
+  <a href="https://github.com/IkramMbz/nakas-gk">
     <img
       src="assets/media/img/logo-git.svg"
       alt="nakas.gk Logo"
       width="140"
-      style="border-radius: 8px;"
     >
-  <!-- </a> -->
+  </a>
 
   <h1>nakas.gk</h1>
 
