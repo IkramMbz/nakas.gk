@@ -25,10 +25,10 @@
   </p>
 
   <p>
-    <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;
-    <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;
+    <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="LICENSE">License</a>
   </p>
 
@@ -39,14 +39,15 @@
 
 Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
 
-**Note:** nakas.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
+> [!WARNING]
+> nakas.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
 ## Meet the Nakas
 
 The **Nakas** are a team of diagnostic agents for web development. Each one has its own specialty, and they work side by side in a single dock.
 
 <div align="center">
-  <img src="assets/media/img/dock-nakas.png" alt="The Nakas dock" width="600">
+  <img src="assets/media/img/dock-nakas.png" alt="The Nakas dock" width="320">
 </div>
 
 <br>
@@ -142,8 +143,8 @@ Server options (`nakas()`, `createNakasHandler()`, `createNakasMiddleware()`, `s
 
 ## Troubleshooting
 
-- **Imports panel: "Route … introuvable"** (the UI text is in French; it means the route was not found) → the server adapter isn't wired up (see above).
-- **"Serveur de développement injoignable"** (dev server unreachable) → the panel retries on its own (1 s → 10 s) and recovers as soon as the server is back; no need to reload the page or re-save the config.
+- **Imports panel: "Route … not found"** → the server adapter isn't wired up (see above).
+- **"Development server unreachable"** → the panel retries on its own (1 s → 10 s) and recovers as soon as the server is back; no need to reload the page or re-save the config.
 - **Nothing shows up** → the host isn't local: pass `enabled: true`.
 - **No imports analyzed** → check `imports.dirs` and run `pnpm run devkit:verify`.
 
