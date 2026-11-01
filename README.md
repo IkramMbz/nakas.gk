@@ -1,119 +1,187 @@
-<!-- ![](/assets/media/img/logo.png) -->
+# nakas-gk
 
-# seo.gk
+<div align="center">
 
-[![Release v0.3.3](https://img.shields.io/badge/release-v0.3.3-white)](https://github.com/IkramMbz/seo-gk/blob/main/README.md#installation) [![Glitch Kids Suite](assets/media/img/glitch-kids-suite.svg)](https://github.com/glitchkids) [![License](assets/media/img/license-mit.svg)](https://github.com/IkramMbz/seo-gk/blob/main/LICENSE) [![Node.js](assets/media/img/nodejs.svg)](https://nodejs.org/) [![TypeScript](assets/media/img/typescript.svg)](https://www.typescriptlang.org/) [![Frontend React](assets/media/img/react.svg)](https://reactjs.org/)
+  <a href="https://github.com/IkramMbz/seo-gk">
+    <img src="assets/media/img/seo-gk.svg" alt="SEO-GK Logo" width="140">
+  </a>
 
-**seo.gk** by Glitch Kids, is a lightweight React library that provides real-time SEO auditing and optimization tools for your web applications. It automatically analyzes your pages and displays actionable insights to improve your search engine rankings.
+  <h1>SEO-GK</h1>
+
+  <p>
+    <strong>The React Developer Toolkit.</strong>
+    <br>
+    Audit SEO, inspect imports, and analyze your web applications directly from your development environment.
+  </p>
+
+  <p>
+    <a href="https://github.com/IkramMbz/seo-gk/releases">
+      <img src="https://img.shields.io/badge/release-v0.3.3-white" alt="Release v0.3.3">
+    </a>
+    <a href="https://github.com/glitchkids">
+      <img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite">
+    </a>
+    <a href="LICENSE">
+      <img src="assets/media/img/license-mit.svg" alt="MIT License">
+    </a>
+    <a href="https://nodejs.org/">
+      <img src="assets/media/img/nodejs.svg" alt="Node.js">
+    </a>
+    <a href="https://www.typescriptlang.org/">
+      <img src="assets/media/img/typescript.svg" alt="TypeScript">
+    </a>
+    <a href="https://react.dev/">
+      <img src="assets/media/img/react.svg" alt="React">
+    </a>
+  </p>
+
+  <p>
+    <a href="https://github.com/IkramMbz/seo-gk/stargazers">
+      <img src="https://img.shields.io/github/stars/IkramMbz/seo-gk?style=flat-square&label=stars" alt="GitHub Stars">
+    </a>
+    <a href="https://github.com/IkramMbz/seo-gk/issues">
+      <img src="https://img.shields.io/github/issues/IkramMbz/seo-gk?style=flat-square&label=issues" alt="Open Issues">
+    </a>
+    <a href="https://github.com/IkramMbz/seo-gk/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/IkramMbz/seo-gk?style=flat-square&label=contributors" alt="Contributors">
+    </a>
+  </p>
+
+  <p>
+    <a href="#installation">Installation</a>
+    ·
+    <a href="#usage">Usage</a>
+    ·
+    <a href="https://github.com/IkramMbz/seo-gk/issues/new">Report a Bug</a>
+    ·
+    <a href="https://github.com/IkramMbz/seo-gk/issues/new">Request a Feature</a>
+    ·
+    <a href="LICENSE">License</a>
+  </p>
+
+</div>
+
+**nakas.gk** by Glitch Kids, is a lightweight React Developer Toolkit for auditing, debugging, and optimizing web applications.
 
 Framework-agnostic, it works with any React-based setup (Astro, Next.js, Vite, etc.).
 <!-- 🟠 -->
 
-**Note:** seo.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
+**Note:** nakas.gk is currently in the testing phase and is not yet available on npm. It will be released soon.
 
-## Table of Contents
+A dock of **Nakas** (diagnostic agents) for web development, framework-agnostic:
 
-- [Key Features](#key-features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- **L** — live SEO audit of the displayed page (49 checks, rerun on every DOM change).
+- **Amalia** — project import analysis (missing files, undeclared dependencies, cycles…), run in a locked-down sandbox.
+- **Bob** — skill for creating new Nakas.
 
-## Key Features
+The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alter it, and is excluded from the SEO audit. By default it only shows on a local host (localhost, `*.local`, private networks).
 
-- Real-time SEO audit with live feedback (development mode only)
-- Framework-agnostic: works with any React setup
-- Comprehensive checks covering 50+ SEO best practices
-- Performance hints (critical resources, resource hints)
-- Mobile-friendly and accessibility checks
+> Client: any modern browser. Server part (import analysis): **Node ≥ 22.13**, development only (404 in production).
 
 ## Installation
 
-To use seo.gk in your project, your environment must meet the following minimum requirements:
-
-- **Node.js** ≥ 18 (for full ESM support and modern module resolution)
-- **Package Manager:** `pnpm` ≥ 7 (or `npm` / `yarn`, scripts are tested with pnpm)
-
-Initialize your project if you haven't already:
-
 ```bash
-npm init -y
+pnpm add -D nakas-gk
 ```
 
-Then install the library directly from GitHub (since it's not yet published on npm):
+## Integration (2 steps: client, then server for Amalia)
 
-```bash
-npm install https://github.com/IkramMbz/seo.gk
+The SEO audit works with the client alone. The Imports panel needs a `GET /api/nakas/*` route in development.
+
+### Vite · Astro · SvelteKit · Nuxt (Vite plugin)
+
+```ts
+// vite.config.ts (Astro: `vite: { plugins: [nakas()] }` in astro.config)
+import { nakas } from "nakas-gk/server";
+export default { plugins: [nakas()] };
 ```
 
-**Note:** For vite
-
-## Vite Configuration
-
-If you're using Vite (or Astro's Vite-based dev server), `seo-gk` currently ships a CSS import path that can break dependency optimization during SSR. Exclude it explicitly in your Vite config:
-
-```js
-export default defineConfig({
-    vite: {
-        optimizeDeps: {
-            exclude: ["seo-gk"]
-        }
-    }
-});
+```ts
+// client entry point (Astro: <script> in the layout)
+import { mountNakas } from "nakas-gk";
+void mountNakas();
 ```
 
-> **Note:** `optimizeDeps` must be a top-level key under `vite`, not nested inside `ssr`.
-
-## Usage
-
-### Basic Setup
-
-Import the SEO checker component into your React project:
+### React (Vite, Remix…)
 
 ```tsx
-import SEOChecker from "seo-gk";
-
-export default function App() {
-    return (
-        <body>
-            <SEOChecker />
-
-            <main class="main-content etc.">
-                <h1>My SEO-friendly page</h1>
-                {/* Your app content */}
-            </main>
-        </body>
-    );
-}
+import { Nakas } from "nakas-gk/react";
+<Nakas />; // uses your app's React
 ```
 
-The `SEOChecker` component will automatically appear in development mode, displaying a floating widget with your SEO score and detailed audit results. It is **not** dev-only by default — you must wrap it in a dev-mode check yourself, otherwise it will be visible in production. The check depends on your build tool:
+### Next.js (App Router)
+
+```ts
+// app/api/nakas/[...path]/route.ts
+import { createNakasHandler } from "nakas-gk/server";
+export const dynamic = "force-dynamic";
+export const GET = createNakasHandler();
+```
 
 ```tsx
-// Vite (and Vite-based tools like Astro's React integration)
-{
-    import.meta.env.DEV && <SEOChecker />;
-}
-
-// Next.js
-{
-    process.env.NODE_ENV !== "production" && <SEOChecker />;
-}
-
-// React Apps / Webpack-based setups
-{
-    process.env.NODE_ENV !== "production" && <SEOChecker />;
-}
-
-// etc.
+// app/layout.tsx: <Nakas /> can be rendered from a Server Component
+import { Nakas } from "nakas-gk/react";
+// …inside <body>: <Nakas />
 ```
 
-> See [README_DEV.md](./README_DEV.md) for a full local testing setup using Vite.
+### Vue
+
+```ts
+import { onMounted, onBeforeUnmount } from "vue";
+import { mountNakas, type NakasHandle } from "nakas-gk";
+let handle: NakasHandle | undefined;
+onMounted(async () => (handle = await mountNakas()));
+onBeforeUnmount(() => handle?.unmount());
+```
+
+### Angular, or any project without server integration
+
+```bash
+npx nakas serve .            # http://127.0.0.1:4321/api/nakas (loopback only)
+```
+
+```ts
+import { mountNakas } from "nakas-gk";
+void mountNakas({ endpoint: "http://127.0.0.1:4321/api/nakas" }); // ngAfterViewInit
+```
+
+### No code: `import "nakas-gk/auto";`
+
+### Options (`mountNakas` / `<Nakas />`)
+
+| Option            | Default                                  | Purpose                             |
+| ----------------- | ---------------------------------------- | ----------------------------------- |
+| `enabled`         | auto (local host)                        | `true`/`false` to force             |
+| `endpoint`        | `/api/nakas`                             | Base URL of the development API     |
+| `contentSelector` | `main`, `[role=main]`, `article`, `body` | Content area used by the SEO checks |
+
+Server options (`nakas()`, `createNakasHandler()`, `createNakasMiddleware()`, `startNakasServer()`): `root`, `strict` (refuse to run without strong network isolation), `imports.dirs` (default: `src` if it exists, otherwise the whole project).
+
+## Troubleshooting
+
+- **Imports panel: "Route … introuvable"** (the UI text is in French; it means the route was not found) → the server adapter isn't wired up (see above).
+- **"Serveur de développement injoignable"** (dev server unreachable) → the panel retries on its own (1 s → 10 s) and recovers as soon as the server is back; no need to reload the page or re-save the config.
+- **Nothing shows up** → the host isn't local: pass `enabled: true`.
+- **No imports analyzed** → check `imports.dirs` and run `pnpm run devkit:verify`.
+
+## Repository commands
+
+| Command                                  | Purpose                                                                            |
+| ---------------------------------------- | ---------------------------------------------------------------------------------- |
+| `pnpm run check`                         | everything: format, lint, types, generated files, CSS, lock, tests, build, package |
+| `pnpm test`                              | devkit tests (`node --test`), then unit tests (vitest)                             |
+| `pnpm run typecheck`                     | 4 TypeScript projects (full, client, server, JS agents)                            |
+| `pnpm run lint` · `fmt` · `fmt:check`    | oxlint (type-aware) · oxfmt                                                        |
+| `pnpm run generate`                      | avatar registry, skills, embedded CSS                                              |
+| `pnpm run css:check`                     | dead or missing CSS classes and variables                                          |
+| `pnpm run devkit:verify` · `devkit:lock` | verify / regenerate `agents.lock`                                                  |
+| `pnpm run build` · `verify:pack`         | build `dist/` · check the built package                                            |
+| `pnpm run dev`                           | continuous recompilation                                                           |
 
 ## Contributing
 
-Components and features are actively developed and may change. Community contributions will be welcomed in the future.
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (where to make changes) and [`SECURITY.md`](SECURITY.md). Conventions: one file = one responsibility; no `any`; no build-environment access in client code; styling in dedicated CSS (inline variables only for dynamic values); any change under `src/devkit/agents/` ends with `pnpm run devkit:lock`.
 
-## License
+## Licenses
 
-seo.gk is licensed under the [MIT License](./LICENSE).
+MIT. Avatar illustrations are CC BY: see [`NOTICE.md`](NOTICE.md).

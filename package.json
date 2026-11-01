@@ -1,77 +1,132 @@
 {
-    "name": "seo-gk",
-    "version": "0.3.3",
-    "description": "Real-time SEO analysis tool providing instant, lightweight feedback to improve web content while coding",
+    "name": "nakas-gk",
+    "version": "0.4.0",
+    "description": "A lightweight React Developer Toolkit for auditing, debugging, and optimizing web applications.",
     "keywords": [
-        "content-optimization",
         "developer-tool",
+        "devtools",
+        "framework-agnostic",
+        "imports",
         "seo",
-        "seo-analysis",
-        "seo-tool"
+        "seo-analysis"
     ],
     "license": "MIT",
     "author": "Ikram Mbechezi",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/IkramMbz/nakas.gk.git"
+    },
+    "bin": {
+        "nakas": "./dist/cli.js",
+        "nakas-devkit": "./dist/devkit/bin/devkit.mjs"
+    },
     "files": [
-        "dist"
+        "dist",
+        "LICENSE",
+        "NOTICE.md",
+        "SECURITY.md"
     ],
     "type": "module",
     "sideEffects": [
-        "*.css"
+        "./dist/auto.js"
     ],
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "auto": [
+                "./dist/auto.d.ts"
+            ],
+            "react": [
+                "./dist/react.d.ts"
+            ],
+            "server": [
+                "./dist/server.d.ts"
+            ],
+            "avatars": [
+                "./dist/avatars/index.d.ts"
+            ],
+            "devkit": [
+                "./dist/devkit/core/index.d.mts"
+            ]
+        }
+    },
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
-            "import": "./dist/index.js",
             "default": "./dist/index.js"
         },
-        "./styles.css": "./dist/styles/index.css",
-        "./components/*": {
-            "types": "./dist/components/*.d.ts",
-            "import": "./dist/components/*.js",
-            "default": "./dist/components/*.js"
+        "./auto": {
+            "types": "./dist/auto.d.ts",
+            "default": "./dist/auto.js"
         },
-        "./lib/*": {
-            "types": "./dist/lib/*.d.ts",
-            "import": "./dist/lib/*.js",
-            "default": "./dist/lib/*.js"
-        }
+        "./react": {
+            "types": "./dist/react.d.ts",
+            "default": "./dist/react.js"
+        },
+        "./server": {
+            "types": "./dist/server.d.ts",
+            "default": "./dist/server.js"
+        },
+        "./avatars": {
+            "types": "./dist/avatars/index.d.ts",
+            "default": "./dist/avatars/index.js"
+        },
+        "./devkit": {
+            "types": "./dist/devkit/core/index.d.mts",
+            "default": "./dist/devkit/core/index.mjs"
+        },
+        "./package.json": "./package.json"
     },
     "scripts": {
-        "build:css": "rimraf dist/styles && esbuild src/styles/index.css --bundle --minify --outfile=dist/styles/index.css",
-        "clean": "rimraf dist",
-        "build": "pnpm run fmt && pnpm run lint && pnpm run clean && tsc && pnpm run build:css",
-        "dev": "tsc --watch",
+        "generate": "node scripts/generate.mjs",
+        "generate:check": "node scripts/generate.mjs --check",
+        "dev": "node scripts/dev.mjs",
+        "build": "node scripts/build.mjs",
+        "typecheck": "pnpm run generate && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.client.json --noEmit && tsc -p tsconfig.server.json --noEmit && tsc -p tsconfig.agents.json --noEmit",
         "lint": "oxlint --max-warnings=0",
-        "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
         "fmt": "oxfmt",
-        "fmt:check": "oxfmt --check && prettier --check \"**/*.{css,md,json}\""
+        "fmt:check": "oxfmt --check",
+        "css:check": "node scripts/css-audit.mjs",
+        "devkit:verify": "node src/devkit/bin/devkit.mjs verify",
+        "devkit:lock": "node src/devkit/bin/devkit.mjs lock",
+        "pretest": "pnpm run generate",
+        "test": "pnpm run test:devkit && pnpm run test:unit",
+        "test:devkit": "node --test \"src/devkit/tests/*.test.mjs\"",
+        "test:unit": "vitest run",
+        "verify:pack": "node scripts/verify-package.mjs",
+        "check": "pnpm run fmt:check && pnpm run lint && pnpm run typecheck && pnpm run generate:check && pnpm run css:check && pnpm run devkit:verify && pnpm run test && pnpm run build && pnpm run verify:pack",
+        "prepublishOnly": "pnpm run check"
     },
     "devDependencies": {
-        "@eslint/js": "^10.0.1",
-        "@types/node": "^26.6.5",
+        "@types/node": "^26.6.6",
         "@types/react": "^19.3.0",
         "@types/react-dom": "^19.3.0",
         "esbuild": "^0.28.2",
-        "eslint": "^10.13.0",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-import": "^2.32.0",
-        "eslint-plugin-oxlint": "^1.88.0",
-        "eslint-plugin-prettier": "^5.5.7",
-        "globals": "^17.13.0",
-        "oxfmt": "^0.73.0",
-        "oxlint": "^1.88.0",
-        "oxlint-tsgolint": "^7.0.2004",
-        "prettier": "^3.9.10",
+        "jsdom": "^30.1.3",
+        "oxfmt": "^0.75.0",
+        "oxlint": "^1.90.0",
+        "oxlint-tsgolint": "^7.0.2005",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
-        "rimraf": "^6.1.3",
         "typescript": "^7.0.2",
-        "typescript-eslint": "^8.71.2"
+        "vite": "^8.3.5",
+        "vitest": "^5.0.5"
     },
     "peerDependencies": {
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19"
-    }
+    },
+    "peerDependenciesMeta": {
+        "react": {
+            "optional": true
+        },
+        "react-dom": {
+            "optional": true
+        }
+    },
+    "engines": {
+        "node": ">=22.13"
+    },
+    "packageManager": "pnpm@10.34.9"
 }

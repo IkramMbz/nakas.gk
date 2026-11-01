@@ -1,0 +1,129 @@
+.nakas-panel {
+    position: fixed;
+    inset: 0 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: var(--nakas-panel-width);
+    border-left: 1px solid var(--nakas-border);
+    bottom: 0;
+    background: var(--nakas-dock-bg-secondary);
+    color: var(--nakas-text);
+    transform: translateX(100%);
+    transition:
+        transform 0.3s cubic-bezier(0.32, 0.72, 0, 1),
+        visibility 0s 0.3s;
+    visibility: hidden;
+}
+
+.nakas-panel[data-open="true"] {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.nakas-panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nakas-spacing-unit);
+    padding: var(--nakas-spacing-unit);
+    border-bottom: 1px solid var(--nakas-border);
+    background: var(--nakas-dock-bg);
+}
+
+.nakas-panel-head img {
+    border-radius: var(--nakas-radius);
+}
+
+.nakas-panel-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit);
+}
+
+.nakas-panel-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.nakas-panel-title small {
+    opacity: 0.6;
+}
+
+.nakas-close {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nakas-close:hover {
+    background: var(--nakas-hover);
+    transform: scale(0.98);
+}
+
+.nakas-panel-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--nakas-spacing-unit);
+    padding-bottom: calc(var(--nakas-spacing-unit) * 8);
+    animation: nakas-fade 0.2s ease;
+}
+
+@keyframes nakas-fade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+/* Action button (Skills, copy). */
+.nakas-button {
+    display: flex;
+    align-items: center;
+    gap: var(--nakas-spacing-unit-quart);
+    width: fit-content;
+    padding: var(--nakas-spacing-unit-quart) var(--nakas-spacing-unit-half);
+    border: 1px solid var(--nakas-text);
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-text-inverse);
+    color: var(--nakas-text);
+    cursor: pointer;
+}
+
+.nakas-button:hover,
+.nakas-button[data-active="true"] {
+    background: var(--nakas-text);
+    color: var(--nakas-text-inverse);
+}
+
+/* SKILL.md: plain text, line breaks preserved. */
+.nakas-skill {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit);
+    max-width: var(--nakas-panel-content-width);
+}
+
+.nakas-skill .nakas-button {
+    align-self: flex-end;
+}
+
+.nakas-skill-text {
+    margin: 0;
+    font-family: var(--nakas-font-mono);
+    font-size: var(--nakas-font-sm);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Mobile: panel at the bottom, above the dock. */
+@media (max-width: 640px) {
+    .nakas-panel {
+        inset: auto 0 0 0;
+        width: 100%;
+        height: min(75dvh, calc(100dvh - var(--nakas-dock-height)));
+        border-radius: var(--nakas-radius) var(--nakas-radius) 0 0;
+        transform: translateY(100%);
+    }
+}

@@ -1,0 +1,66 @@
+/* Design tokens: single source of colors, spacing and sizes. Carried by the shadow DOM host. */
+:host {
+    --nakas-bg: #f3f1ed;
+    --nakas-bg-raised: #fdfcfa;
+    --nakas-text: #1c1919;
+    --nakas-text-inverse: #fdfcfa;
+    --nakas-border: rgb(28 27 25 / 0.08);
+    --nakas-hover: rgb(0 0 0 / 0.06);
+
+    --nakas-error: #d1564a;
+    --nakas-success: #3fa273;
+    --nakas-warning: #c9822f;
+    --nakas-info: #4f7dc9;
+
+    --nakas-dock-bg: rgb(253 252 250 / 0.7);
+    --nakas-dock-bg-secondary: rgb(253 252 250 / 0.8);
+    --nakas-dock-btn: rgb(28 27 25 / 0.06);
+    --nakas-dock-btn-hover: rgb(28 27 25 / 0.12);
+    --nakas-dock-dot: #1c1919;
+    --nakas-focus: #6366f1;
+    --nakas-tooltip-bg: rgb(24 26 33 / 0.92);
+
+    --nakas-spacing-unit-quart: 0.25rem;
+    --nakas-spacing-unit-half: 0.5rem;
+    --nakas-spacing-unit: 1rem;
+    --nakas-spacing-unit-double: 2rem;
+
+    --nakas-font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --nakas-font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --nakas-font-sm: 0.8125rem;
+    --nakas-font-md: 0.9375rem;
+    --nakas-font-lg: 1rem;
+    --nakas-font-xl: 1.125rem;
+
+    --nakas-radius: 8px;
+    --nakas-radius-half: 4px;
+    --nakas-panel-width: 360px;
+    --nakas-panel-content-width: 300px;
+    --nakas-dock-height: 72px;
+
+    color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+    :host {
+        --nakas-bg: #141311;
+        --nakas-bg-raised: #1d1b19;
+        --nakas-text: #f1eee9;
+        --nakas-text-inverse: #1c1919;
+        --nakas-border: rgb(241 238 233 / 0.1);
+        --nakas-hover: rgb(255 255 255 / 0.08);
+
+        --nakas-error: #e8695d;
+        --nakas-success: #4fbb86;
+        --nakas-warning: #dd9843;
+        --nakas-info: #6b97e0;
+
+        --nakas-dock-bg: rgb(30 33 43 / 0.7);
+        --nakas-dock-bg-secondary: rgb(30 33 43 / 0.8);
+        --nakas-dock-btn: rgb(255 255 255 / 0.08);
+        --nakas-dock-btn-hover: rgb(255 255 255 / 0.18);
+        --nakas-dock-dot: #cbd2e1;
+
+        color-scheme: dark;
+    }
+}

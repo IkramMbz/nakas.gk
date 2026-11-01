@@ -1,1 +1,0 @@
-{"version":3,"file":"use-seo-audit.d.ts","sourceRoot":"","sources":["../../src/hooks/use-seo-audit.ts"],"names":[],"mappings":"AAKA,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,aAAa,CAAC;AAElD,OAAO,CAAC,MAAM,CAAC;IACX,UAAU,aAAa;QACnB,QAAQ,CAAC,GAAG,CAAC,EAAE,OAAO,CAAC;KAC1B;IACD,UAAU,UAAU;QAChB,QAAQ,CAAC,GAAG,CAAC,EAAE,aAAa,CAAC;KAChC;CACJ;AAkBD,wBAAgB,WAAW,IAAI,cAAc,GAAG,IAAI,CAkBnD"}

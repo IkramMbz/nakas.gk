@@ -1,0 +1,41 @@
+.nakas-text {
+    color: var(--nakas-text);
+    text-wrap: pretty;
+}
+
+.nakas-text-sm {
+    font-size: var(--nakas-font-sm);
+}
+
+.nakas-text-md {
+    font-size: var(--nakas-font-md);
+}
+
+.nakas-text-lg {
+    font-size: var(--nakas-font-lg);
+}
+
+.nakas-text-xl {
+    font-size: var(--nakas-font-xl);
+}
+
+.nakas-muted {
+    opacity: 0.7;
+}
+
+/* Semantic color: one mechanism for titles, notices and legends. */
+.nakas-tone[data-tone="error"] {
+    color: var(--nakas-error);
+}
+
+.nakas-tone[data-tone="warning"] {
+    color: var(--nakas-warning);
+}
+
+.nakas-tone[data-tone="success"] {
+    color: var(--nakas-success);
+}
+
+.nakas-tone[data-tone="info"] {
+    color: var(--nakas-info);
+}

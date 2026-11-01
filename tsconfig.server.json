@@ -1,0 +1,17 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "lib": ["ES2023"],
+        "types": ["node"]
+    },
+    "include": [
+        "src/server.ts",
+        "src/cli.ts",
+        "src/server",
+        "src/core",
+        "src/agents/tools.server.ts",
+        "src/agents/*/server.ts"
+    ],
+    "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+}

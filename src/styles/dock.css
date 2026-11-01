@@ -1,0 +1,231 @@
+.nakas-dock {
+    max-width: var(--nakas-dock-width);
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--nakas-spacing-unit-half);
+    border: 1px solid var(--nakas-border);
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-dock-bg);
+    -webkit-backdrop-filter: blur(24px) saturate(150%);
+    backdrop-filter: blur(24px) saturate(150%);
+    isolation: isolate;
+    z-index: 2147483001;
+}
+
+.nakas-dock-items {
+    display: flex;
+    align-items: center;
+    gap: var(--nakas-dock-gap);
+    min-width: 0;
+}
+
+.nakas-dock-more {
+    position: relative;
+    flex: none;
+}
+
+.nakas-dock-btn {
+    position: relative;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: var(--nakas-dock-size);
+    height: var(--nakas-dock-size);
+    padding: 0;
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-dock-btn);
+    cursor: pointer;
+    transition:
+        transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.15s,
+        box-shadow 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.nakas-dock-btn:disabled,
+.nakas-dock-menu button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.nakas-dock-btn:focus-visible,
+.nakas-root button:focus-visible {
+    z-index: 3;
+    outline: 2px solid var(--nakas-focus);
+    outline-offset: 3px;
+}
+
+/* Tooltip (Nakas name). */
+.nakas-dock-btn::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    z-index: 10;
+    padding: 6px 9px;
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-tooltip-bg);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 3px);
+    transition:
+        opacity 0.12s,
+        transform 0.12s;
+}
+
+.nakas-dock-btn:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%);
+}
+
+@media (hover: hover) {
+    .nakas-dock-btn:hover:not(:disabled) {
+        z-index: 2;
+        transform: translateY(-3px) scale(var(--nakas-dock-magnify));
+        background: var(--nakas-dock-btn-hover);
+        box-shadow: 0 7px 16px rgb(35 45 70 / 0.13);
+    }
+
+    .nakas-dock-btn:hover::after {
+        opacity: 1;
+        transform: translate(-50%);
+    }
+}
+
+.nakas-dock-ico {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: var(--nakas-border-half);
+}
+
+.nakas-dock-ico > * {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.nakas-dock-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: calc(var(--nakas-radius) - 1px);
+    transition:
+        opacity 0.2s,
+        box-shadow 0.2s,
+        filter 0.2s;
+}
+
+/* Selected Nakas: ring + halo. */
+.nakas-dock-avatar[data-active="true"] {
+    box-shadow:
+        0 0 0 2px #fff,
+        0 0 0 4px #6366f1,
+        0 4px 14px rgb(99 102 241 / 0.5);
+}
+
+/* Panel open: other Nakas fade out. */
+.nakas-root[data-has-open="true"] .nakas-dock-avatar:not([data-active="true"]) {
+    opacity: 0.5;
+    filter: grayscale(0.5);
+}
+
+.nakas-dock-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 4;
+    display: grid;
+    place-items: center;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border: 1px solid rgb(255 255 255 / 0.9);
+    border-radius: 99px;
+    background: var(--nakas-error);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.nakas-dock-more .nakas-dock-badge {
+    background: var(--nakas-dock-dot);
+    color: var(--nakas-text-inverse);
+}
+
+.nakas-dock-plus {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* "+" overflow menu. */
+.nakas-dock-menu {
+    position: absolute;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit-quart);
+    min-width: 220px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: var(--nakas-spacing-unit-half);
+    border: 1px solid var(--nakas-border);
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-bg-raised);
+}
+
+.nakas-dock-menu button {
+    display: flex;
+    align-items: center;
+    gap: var(--nakas-spacing-unit-half);
+    padding: var(--nakas-spacing-unit-quart) var(--nakas-spacing-unit-half);
+    border: 0;
+    border-radius: var(--nakas-radius);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.nakas-dock-menu button:hover:not(:disabled) {
+    background: var(--nakas-hover);
+}
+
+.nakas-dock-menu .nakas-dock-ico {
+    width: 28px;
+    height: 28px;
+}
+
+.nakas-dock-menu input {
+    padding: var(--nakas-spacing-unit-quart) var(--nakas-spacing-unit-half);
+    border: 1px solid var(--nakas-border);
+    border-radius: var(--nakas-radius);
+    background: transparent;
+}
+
+@media (max-width: 480px) {
+    .nakas-dock {
+        padding: 7px;
+        border-radius: var(--nakas-radius);
+    }
+
+    .nakas-dock-btn {
+        border-radius: var(--nakas-radius);
+    }
+
+    .nakas-dock-more {
+        position: static;
+    }
+}

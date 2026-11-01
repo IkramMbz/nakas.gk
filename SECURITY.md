@@ -1,24 +1,11 @@
-# Security Policy
+# Security
 
-## Supported Versions
+## Reporting a vulnerability
 
-This section outlines which versions of seo.gk are actively supported with security updates.
+Use the repository's **GitHub Security Advisories** (private report). Do not open a public issue.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.3.x   | :white_check_mark: |
+## Scope
 
-> Note: As seo.gk is currently in testing, only version 0.3.x is supported. Future releases will expand support.
-
----
-
-## Reporting a Vulnerability
-
-If you discover a security vulnerability in seo.gk, please report it responsibly:
-
-1. **Email:** Send details to `contact@mbechezi.fr` with a clear subject like `Security Vulnerability Report`.
-2. **Response Time:** Expect a response within 48 hours.
-3. **Resolution:** We will investigate and release a patched version as soon as possible.
-4. **Acknowledgment:** If the vulnerability is confirmed, your contribution may be credited in the release notes.
-
-> Do not disclose the vulnerability publicly until a fix is released.
+- Server adapters exist only in development: they return **404 in production** (`NODE_ENV=production`) and the Vite plugin is absent from builds.
+- The standalone server (`nakas serve`) listens on loopback only and rejects non-local `Host`/`Origin` headers.
+- Agents run in the DevKit sandbox, locked by `agents.lock`. Full threat model: [`src/devkit/SECURITY.md`](src/devkit/SECURITY.md).

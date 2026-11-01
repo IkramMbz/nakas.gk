@@ -1,0 +1,25 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "types": ["react", "react-dom"]
+    },
+    "include": [
+        "src/index.ts",
+        "src/auto.ts",
+        "src/react.ts",
+        "src/standalone.ts",
+        "src/core",
+        "src/ui",
+        "src/browser",
+        "src/agents",
+        "src/avatars/index.ts"
+    ],
+    "exclude": [
+        "**/*.test.ts",
+        "**/*.test.tsx",
+        "src/agents/*/server.ts",
+        "src/agents/tools.server.ts"
+    ]
+}

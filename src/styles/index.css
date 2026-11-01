@@ -1,1 +1,6 @@
-@import "../../assets//styles/app.css";
+@import "./tokens.css";
+@import "./base.css";
+@import "./typography.css";
+@import "./dock.css";
+@import "./panel.css";
+@import "./checker.css";

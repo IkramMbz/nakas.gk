@@ -1,0 +1,108 @@
+/* Shared diagnostic panel kit: header, legend, list, notice. */
+.nakas-checker {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit);
+}
+
+.nakas-checker-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit-half);
+}
+
+.nakas-checker-header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.nakas-checker-summary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit-quart);
+}
+
+.nakas-legend {
+    display: flex;
+    gap: var(--nakas-spacing-unit-half);
+    font-size: var(--nakas-font-sm);
+}
+
+.nakas-legend li {
+    display: flex;
+    align-items: center;
+    gap: var(--nakas-spacing-unit-quart);
+}
+
+.nakas-dot {
+    display: inline-block;
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: var(--nakas-radius);
+}
+
+.nakas-dot[data-status="success"] {
+    background: var(--nakas-success);
+}
+
+.nakas-dot[data-status="warning"] {
+    background: var(--nakas-warning);
+}
+
+.nakas-dot[data-status="error"] {
+    background: var(--nakas-error);
+}
+
+.nakas-dot[data-status="info"] {
+    background: var(--nakas-info);
+}
+
+.nakas-checklist {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--nakas-spacing-unit);
+}
+
+.nakas-checklist-item {
+    display: flex;
+    align-items: center;
+    gap: var(--nakas-spacing-unit-half);
+}
+
+.nakas-checklist-title {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.nakas-checklist-detail {
+    max-width: var(--nakas-panel-content-width);
+    opacity: 0.85;
+}
+
+.nakas-checklist-detail code {
+    display: block;
+    font-family: var(--nakas-font-mono);
+    font-size: var(--nakas-font-sm);
+    opacity: 0.7;
+    overflow-wrap: anywhere;
+}
+
+.nakas-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nakas-spacing-unit-half);
+    padding: var(--nakas-spacing-unit-half);
+    border: 1px solid var(--nakas-border);
+    border-left: 3px solid var(--nakas-warning);
+    border-radius: var(--nakas-radius);
+    background: var(--nakas-bg-raised);
+}
+
+.nakas-notice[data-tone="error"] {
+    border-left-color: var(--nakas-error);
+}

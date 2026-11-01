@@ -4,5 +4,18 @@
     "semi": true,
     "trailingComma": "none",
     "printWidth": 100,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "endOfLine": "lf",
+    "ignorePatterns": [
+        "dist/**",
+        "node_modules/**",
+        "pnpm-lock.yaml",
+        "playground/dist/**",
+        "src/avatars/assets/**",
+        "src/avatars/registry.generated.ts",
+        "src/agents/skills.generated.ts",
+        "src/ui/styles.generated.ts",
+        "src/devkit/agents/**",
+        "src/devkit/agents.lock"
+    ]
 }

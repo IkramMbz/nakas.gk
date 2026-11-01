@@ -1,0 +1,82 @@
+/* Isolation + typography */
+:host {
+    all: initial;
+
+    /* Design tokens */
+    color: var(--nakas-text, #1c1919);
+    font-family: var(--nakas-font, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif);
+    font-size: var(--nakas-font-md, 0.9375rem);
+    font-weight: 400;
+    line-height: 1.5;
+    color-scheme: light;
+}
+
+/* Apply typography to every element inside Shadow DOM */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
+/* Full-screen layer that lets clicks through; only its children capture them. */
+.nakas-root {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483000;
+    pointer-events: none;
+    font-family: var(--nakas-font);
+    color: var(--nakas-text);
+}
+
+.nakas-root > * {
+    pointer-events: auto;
+}
+
+.nakas-stage {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--nakas-spacing-unit-double) var(--nakas-spacing-unit);
+    pointer-events: none;
+    font-family: inherit;
+}
+
+.nakas-stage > * {
+    pointer-events: auto;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}

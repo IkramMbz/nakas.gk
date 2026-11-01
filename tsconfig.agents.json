@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "noEmit": true,
+        "allowJs": true,
+        "noImplicitAny": false,
+        "checkJs": true,
+        "declaration": false,
+        "declarationMap": false,
+        "sourceMap": false,
+        "rootDir": "src/devkit",
+        "lib": ["ES2023"],
+        "types": []
+    },
+    "include": ["src/devkit/agents/**/*.mjs"]
+}

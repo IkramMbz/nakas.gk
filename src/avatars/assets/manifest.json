@@ -1,0 +1,51 @@
+{
+    "canvas": {
+        "width": 480,
+        "height": 480
+    },
+    "layers": [
+        {
+            "name": "head",
+            "transform": "matrix(.85682 0 0 .85439 52 75.4)"
+        },
+        {
+            "name": "mouth",
+            "transform": "matrix(.85472 0 0 .855 222 253.2)"
+        },
+        {
+            "name": "eyes",
+            "transform": "matrix(.85472 0 0 .855 261.6 170.8)"
+        },
+        {
+            "name": "hair",
+            "transform": "matrix(.85472 0 0 .85667 1.8 -47.6)"
+        },
+        {
+            "name": "accessories",
+            "transform": "matrix(.85472 0 0 .85667 85.6 71)",
+            "probability": 50
+        }
+    ],
+    "palettes": {
+        "hair": [
+            "#220f00",
+            "#3a1a00",
+            "#71472d",
+            "#e2ba87",
+            "#605de4",
+            "#238d80",
+            "#d56c0c",
+            "#e9b729"
+        ],
+        "skin": [
+            "#ffe4c0",
+            "#f5d7b1",
+            "#efcc9f",
+            "#e2ba87",
+            "#c99c62",
+            "#a47539",
+            "#8c5a2b",
+            "#643d19"
+        ]
+    }
+}

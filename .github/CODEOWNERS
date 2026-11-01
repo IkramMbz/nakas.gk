@@ -1,0 +1,5 @@
+# Security-critical code requires explicit review.
+/src/devkit/core/        @IkramMbz
+/src/devkit/agents/      @IkramMbz
+/src/devkit/agents.lock  @IkramMbz
+/.github/                @IkramMbz

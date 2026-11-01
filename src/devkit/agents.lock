@@ -1,0 +1,8 @@
+{
+  "lockfileVersion": 1,
+  "agents": {
+    "import-doctor": {
+      "sha256": "200b6430a5aa15f623dac44fbd87935a023918cadf8c5d98768bf2e3f06d605c"
+    }
+  }
+}

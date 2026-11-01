@@ -1,29 +1,11 @@
 {
+    "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "target": "ES2020",
-        "module": "NodeNext",
-        "moduleResolution": "NodeNext",
-        "lib": ["DOM", "ESNext"],
-        "jsx": "react-jsx",
-        "strict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true,
-        "rootDir": "./src",
-        "outDir": "dist",
-        "declaration": true,
-        "declarationMap": true,
-        "sourceMap": true,
-        "noEmitOnError": false,
-        "verbatimModuleSyntax": true,
-        "noUncheckedIndexedAccess": true,
-        "noImplicitOverride": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true,
-        "allowJs": false,
-        "types": ["react", "react-dom", "node"]
+        "noEmit": true,
+        "rootDir": ".",
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "types": ["node", "react", "react-dom"]
     },
-    "include": ["src"],
-    "exclude": ["node_modules", "dist", "src/styles"]
+    "include": ["src", "tests", "vitest.config.ts"],
+    "exclude": ["node_modules", "dist", "src/devkit/agents"]
 }
