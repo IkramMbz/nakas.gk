@@ -51,13 +51,13 @@
 
   <p>
     <a href="#installation">Installation</a>
-    ·
+
     <a href="#usage">Usage</a>
-    ·
+
     <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>
-    ·
+
     <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>
-    ·
+
     <a href="LICENSE">License</a>
   </p>
 
