@@ -1,7 +1,7 @@
 <div align="center">
   <!-- <a href="https://github.com/IkramMbz/nakas-gk"> -->
     <img
-      src="assets/media/img/nakas-gk.svg"
+      src="assets/media/img/logo-git.svg"
       alt="nakas.gk Logo"
       width="140"
       style="border-radius: 8px;"
