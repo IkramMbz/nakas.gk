@@ -1,0 +1,1 @@
+{"version":3,"file":"mount.d.ts","sourceRoot":"","sources":["../../src/browser/mount.tsx"],"names":[],"mappings":"AAGA,OAAO,EAAiB,KAAK,YAAY,EAAE,MAAM,oBAAoB,CAAC;AAEtE,OAAO,EAAqB,cAAc,EAAE,MAAM,sBAAsB,CAAC;AAEzE,MAAM,WAAW,WAAW;IACxB,+CAA+C;IAC/C,OAAO,IAAI,IAAI,CAAC;CACnB;AAMD;;;GAGG;AACH,wBAAgB,KAAK,CAAC,OAAO,GAAE,YAAiB,GAAG,WAAW,CA2B7D;AAED,OAAO,EAAE,cAAc,EAAE,CAAC"}

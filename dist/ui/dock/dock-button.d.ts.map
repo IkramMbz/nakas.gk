@@ -1,0 +1,1 @@
+{"version":3,"file":"dock-button.d.ts","sourceRoot":"","sources":["../../../src/ui/dock/dock-button.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,QAAQ,EAAE,MAAM,YAAY,CAAC;AAG3C,UAAU,KAAK;IACX,IAAI,EAAE,QAAQ,CAAC;IACf,MAAM,EAAE,CAAC,IAAI,EAAE,QAAQ,KAAK,IAAI,CAAC;CACpC;AAED,MAAM,CAAC,OAAO,UAAU,UAAU,CAAC,EAAE,IAAI,EAAE,MAAM,EAAE,EAAE,KAAK,+BAiBzD"}

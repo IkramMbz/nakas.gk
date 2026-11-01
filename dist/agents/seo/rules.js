@@ -1,0 +1,16 @@
+/** SEO audit thresholds. */
+export const SEO_RULES = {
+    TITLE_MIN: 30,
+    TITLE_MAX: 60,
+    DESCRIPTION_MIN: 120,
+    DESCRIPTION_MAX: 150,
+    WORD_COUNT_MIN: 150,
+    CHAR_COUNT_MIN: 300,
+    OG_PREVIEW_LENGTH: 90,
+    CHAR_BY_SENTENCE_MIN: 21,
+    KEYWORDS_MIN: 3,
+    KEYWORDS_MAX: 9,
+    RESOURCES_MAX_CSS_SCRIPTS: 9,
+    RESOURCES_MAX_BLOCKING_SCRIPTS: 9
+};
+//# sourceMappingURL=rules.js.map

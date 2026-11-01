@@ -1,0 +1,1 @@
+{"version":3,"file":"identity.d.ts","sourceRoot":"","sources":["../../../src/agents/creator/identity.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,GAAG;iBACR,KAAK;mBACH,KAAK;mBACL,mBAAmB;oBAClB,eAAe;;iBAElB,IAAI,EAAE,kBAAkB;iBACxB,IAAI,EAAE,SAAS;iBACf,SAAS,EAAE,SAAS;iBACpB,UAAU,EAAE,SAAS;iBACrB,KAAK,EAAE,aAAa;;CAEF,CAAC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"errors.d.ts","sourceRoot":"","sources":["../../src/avatars/errors.ts"],"names":[],"mappings":"AAAA,MAAM,MAAM,eAAe,GACrB,cAAc,GACd,gBAAgB,GAChB,eAAe,GACf,cAAc,GACd,aAAa,GACb,eAAe,GACf,eAAe,GACf,eAAe,CAAC;AAEtB,qBAAa,WAAY,SAAQ,KAAK;IAClC,QAAQ,CAAC,IAAI,EAAE,eAAe,CAAC;IAE/B,YAAY,IAAI,EAAE,eAAe,EAAE,OAAO,EAAE,MAAM,EAIjD;CACJ"}

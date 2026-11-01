@@ -1,0 +1,1 @@
+{"version":3,"file":"notice.d.ts","sourceRoot":"","sources":["../../../src/ui/checker/notice.tsx"],"names":[],"mappings":"AAAA,UAAU,KAAK;IACX,OAAO,EAAE,MAAM,CAAC;IAChB,IAAI,CAAC,EAAE,SAAS,GAAG,OAAO,CAAC;IAC3B,OAAO,CAAC,EAAE,MAAM,IAAI,CAAC;CACxB;AAED,oFAAoF;AACpF,wBAAgB,MAAM,CAAC,EAAE,OAAO,EAAE,IAAgB,EAAE,OAAO,EAAE,EAAE,KAAK,+BAWnE"}

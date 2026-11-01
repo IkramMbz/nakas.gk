@@ -1,0 +1,1 @@
+{"version":3,"file":"identity.d.ts","sourceRoot":"","sources":["../../../src/agents/imports/identity.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,MAAM;iBACX,QAAQ;mBACN,QAAQ;mBACR,eAAe;oBACd,eAAe;;iBAElB,IAAI,EAAE,QAAQ;iBACd,IAAI,EAAE,SAAS;iBACf,SAAS,EAAE,SAAS;iBACpB,UAAU,EAAE,SAAS;iBACrB,KAAK,EAAE,QAAQ;;CAEG,CAAC"}
