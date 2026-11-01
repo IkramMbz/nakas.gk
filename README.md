@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/IkramMbz/nakas-gk">
+  <a href="https://github.com/IkramMbz/nakas.gk">
     <img
       src="assets/media/img/logo-git.png"
       alt="nakas.gk Logo"
@@ -16,7 +16,7 @@
   </p>
 
   <p>
-    <a href="https://github.com/IkramMbz/nakas-gk/releases"><img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0"></a>
+    <a href="https://github.com/IkramMbz/nakas.gk/releases"><img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0"></a>
     <a href="https://github.com/glitchkids"><img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite"></a>
     <a href="LICENSE"><img src="assets/media/img/license-mit.svg" alt="MIT License"></a>
     <a href="https://nodejs.org/"><img src="assets/media/img/nodejs.svg" alt="Node.js"></a>
@@ -27,8 +27,8 @@
   <p>
     <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas.gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas.gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="LICENSE">License</a>
   </p>
 
@@ -65,7 +65,7 @@ The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alt
 ## Installation
 
 ```bash
-pnpm add -D https://github.com/IkramMbz/nakas-gk
+pnpm add -D https://github.com/IkramMbz/nakas.gk
 ```
 
 ## Integration (2 steps: client, then server for Amalia)
@@ -121,7 +121,7 @@ onBeforeUnmount(() => handle?.unmount());
 ### Angular, or any project without server integration
 
 ```bash
-npx nakas serve .            # http://127.0.0.1:4321/api/nakas (loopback only)
+npx nakas serve . # http://127.0.0.1:4321/api/nakas (loopback only)
 ```
 
 ```ts
