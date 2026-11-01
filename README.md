@@ -25,10 +25,10 @@
   </p>
 
   <p>
-    <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#installation">Installation</a>&nbsp;&nbsp;&nbsp;
+    <a href="#integration-2-steps-client-then-server-for-amalia">Usage</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Report a Bug</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://github.com/IkramMbz/nakas-gk/issues/new">Request a Feature</a>&nbsp;&nbsp;&nbsp;
     <a href="LICENSE">License</a>
   </p>
 
