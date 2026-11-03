@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.4.0 — overhaul
+## 0.4.1 — overhaul
 
 **Breaking changes**
 

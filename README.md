@@ -16,7 +16,7 @@
   </p>
 
   <p>
-    <a href="https://github.com/IkramMbz/nakas.gk/releases"><img src="https://img.shields.io/badge/release-v0.4.0-white" alt="Release v0.4.0"></a>
+    <a href="https://github.com/IkramMbz/nakas.gk/releases"><img src="https://img.shields.io/badge/release-v0.4.1-white" alt="Release v0.4.1"></a>
     <a href="https://github.com/glitchkids"><img src="assets/media/img/glitch-kids-suite.svg" alt="Glitch Kids Suite"></a>
     <a href="LICENSE"><img src="assets/media/img/license-mit.svg" alt="MIT License"></a>
     <a href="https://nodejs.org/"><img src="assets/media/img/nodejs.svg" alt="Node.js"></a>
