@@ -336,3 +336,57 @@ export async function fingerprintWorkspace(root, { include } = {}) {
     }
     return hash.digest("hex");
 }
+
+/**
+ * Reads ONE file located directly in `dir` (no sub-path), for transform agents.
+ * Same guarantees as the workspace snapshot: no symlink (O_NOFOLLOW + confined realpath),
+ * regular file only, size capped, no secret-looking name.
+ */
+export async function readFileConfined(dir, name, { maxBytes }) {
+    if (
+        typeof name !== "string" ||
+        name.length === 0 ||
+        name.length > 200 ||
+        name.startsWith(".") ||
+        /[\\/]/.test(name) ||
+        WEIRD_NAME.test(name)
+    ) {
+        throw new DevkitError("E_USAGE", "nom de fichier invalide");
+    }
+    if (isSensitiveName(name)) throw new DevkitError("E_POLICY", "fichier refusé : nom sensible");
+
+    let realDir;
+    try {
+        realDir = await fs.realpath(dir);
+    } catch {
+        throw new DevkitError("E_USAGE", "dossier introuvable");
+    }
+    const abs = path.join(realDir, name);
+    let fh;
+    try {
+        fh = await fs.open(abs, O_FLAGS);
+        const st = await fh.stat();
+        if (!st.isFile())
+            throw new DevkitError("E_POLICY", "fichier refusé : pas un fichier régulier");
+        if (st.size > maxBytes) throw new DevkitError("E_POLICY", "fichier trop volumineux");
+        if (path.dirname(await fs.realpath(abs)) !== realDir) {
+            throw new DevkitError("E_POLICY", "fichier refusé : lien symbolique");
+        }
+        const buf = Buffer.allocUnsafe(st.size + 1);
+        let off = 0;
+        while (off < buf.length) {
+            const { bytesRead } = await fh.read(buf, off, buf.length - off, off);
+            if (bytesRead === 0) break;
+            off += bytesRead;
+        }
+        if (off > maxBytes) throw new DevkitError("E_POLICY", "fichier trop volumineux");
+        return buf.subarray(0, off);
+    } catch (e) {
+        if (e instanceof DevkitError) throw e;
+        if (e?.code === "ELOOP")
+            throw new DevkitError("E_POLICY", "fichier refusé : lien symbolique");
+        throw new DevkitError("E_USAGE", "fichier illisible");
+    } finally {
+        await fh?.close().catch(() => {});
+    }
+}

@@ -3,6 +3,9 @@
   "agents": {
     "import-doctor": {
       "sha256": "200b6430a5aa15f623dac44fbd87935a023918cadf8c5d98768bf2e3f06d605c"
+    },
+    "manifest": {
+      "sha256": "cd5f3fb297f09f1679701643d75cf29760fc50eab991f7432f978e982892b2ae"
     }
   }
 }

@@ -14,7 +14,8 @@ export interface Finding {
 }
 
 export interface AgentPermissions {
-    read: "workspace" | "none";
+    /** `file`: transform agent (one file given by the runner, see `runTransform`). */
+    read: "workspace" | "file" | "none";
     write: "none";
     network: "none";
     exec: "none";
@@ -108,3 +109,49 @@ export declare function loadAgent(
 ): Promise<LoadedAgent>;
 export declare function listAgentNames(root: string): Promise<string[]>;
 export declare function loadLock(root: string): Promise<Map<string, string>>;
+
+export interface TransformArtifact {
+    /** One of the names listed in `expected` (`"sub/file.png"` allowed, one level). */
+    name: string;
+    data: Buffer;
+}
+
+export interface TransformResult {
+    schema: "devkit.transform/1";
+    agent: { name: string; sha256: string };
+    isolation: IsolationReport;
+    artifacts: TransformArtifact[];
+    durationMs: number;
+}
+
+export interface RunTransformOptions {
+    /** Locked agent declaring `read: file`. */
+    name: string;
+    /** Folder containing the file (already confined by the caller). */
+    dir: string;
+    /** File name, directly inside `dir` (no sub-path). */
+    file: string;
+    /** Exact list of files the agent must return; anything else rejects the run. */
+    expected: readonly string[];
+    params?: Readonly<Record<string, unknown>>;
+    root?: string;
+    strict?: boolean;
+    timeoutMs?: number;
+}
+
+export declare function runTransform(options: RunTransformOptions): Promise<TransformResult>;
+
+/** Absolute real path of `rel` under the project root (no `..`, no symlink). */
+export declare function resolveConfinedDir(root: string, rel: string): Promise<string>;
+
+export declare function listConfinedFiles(
+    dir: string,
+    options: { exts: readonly string[]; max?: number }
+): Promise<{ name: string; bytes: number }[]>;
+
+/** Creates a NEW folder and writes into it; never overwrites; rolls back what it created. */
+export declare function writeArtifactsExclusive(options: {
+    parentDir: string;
+    folderName: string;
+    files: readonly TransformArtifact[];
+}): Promise<{ folder: string; files: string[] }>;

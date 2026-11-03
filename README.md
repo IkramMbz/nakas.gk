@@ -63,11 +63,12 @@ The **Nakas** are a team of diagnostic agents for web development. Each one has 
 
 <!-- <br> -->
 
-| Naka       | Role                    | What it does                                                                                       |
-| ---------- | ----------------------- | -------------------------------------------------------------------------------------------------- |
-| **L**      | SEO auditor             | Live SEO audit of the displayed page (49 checks, rerun on every DOM change).                       |
-| **Amalia** | Import analyst          | Project import analysis (missing files, undeclared dependencies, cycles…), run in a locked-down sandbox. |
-| **Bob**    | Naka builder            | Skill for creating new Nakas.                                                                      |
+| Naka       | Role           | What it does                                                                                                           |
+| ---------- | -------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **L**      | SEO auditor    | Live SEO audit of the displayed page (49 checks, rerun on every DOM change).                                           |
+| **Amalia** | Import analyst | Project import analysis (missing files, undeclared dependencies, cycles…), run in a locked-down sandbox.               |
+| **Bob**    | Naka builder   | Skill for creating new Nakas.                                                                                          |
+| **Alfred** | Manifest maker | Generates PWA icons and `manifest.json` from a PNG into a new dated folder of `public/`, run in a locked-down sandbox. |
 
 The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alter it, and is excluded from the SEO audit. By default it only shows on a local host (localhost, `*.local`, private networks).
 
@@ -144,10 +145,10 @@ void mountNakas({ endpoint: "http://127.0.0.1:4321/api/nakas" }); // ngAfterView
 
 ### Options (`mountNakas` / `<Nakas />`)
 
-| Option            | Default                                  | Purpose                         |
-| ----------------- | ---------------------------------------- | ------------------------------- |
-| `enabled`         | auto (local host)                        | `true`/`false` to force         |
-| `endpoint`        | `/api/nakas`                             | Base URL of the development API |
+| Option            | Default                                  | Purpose                             |
+| ----------------- | ---------------------------------------- | ----------------------------------- |
+| `enabled`         | auto (local host)                        | `true`/`false` to force             |
+| `endpoint`        | `/api/nakas`                             | Base URL of the development API     |
 | `contentSelector` | `main`, `[role=main]`, `article`, `body` | Content area used by the SEO checks |
 
 Server options (`nakas()`, `createNakasHandler()`, `createNakasMiddleware()`, `startNakasServer()`): `root`, `strict` (refuse to run without strong network isolation), `imports.dirs` (default: `src` if it exists, otherwise the whole project).

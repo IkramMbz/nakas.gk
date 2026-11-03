@@ -94,7 +94,9 @@ try {
     if (typeof mod.default !== "function") die("l'agent doit exporter une fonction par défaut");
     const res = await mod.default(input);
     const findings = Array.isArray(res) ? res : res?.findings;
-    out = { ok: true, findings };
+    // `artifacts` (transform agents): bytes in base64, validated by the parent.
+    const artifacts = Array.isArray(res) ? undefined : res?.artifacts;
+    out = { ok: true, findings, artifacts };
 } catch (e) {
     out = { ok: false, error: String(e?.message ?? e).slice(0, 300) };
 }

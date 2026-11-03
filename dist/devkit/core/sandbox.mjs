@@ -190,6 +190,7 @@ export async function runSandboxed({
             );
         return {
             findings: parsed.findings,
+            artifacts: parsed.artifacts,
             isolation: {
                 fsRead: "node-permission",
                 network: unshareBin ? "netns" : "best-effort",

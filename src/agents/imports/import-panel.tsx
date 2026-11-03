@@ -32,7 +32,7 @@ export default function ImportPanel({ active }: PanelProps) {
             <CheckerHeader
                 headline={summary.headline}
                 tone={summary.tone}
-                subline={`${data.filesScanned} fichiers analysés dans « ${data.dir} »`}
+                subline={`${data.filesScanned} fichiers analysés (/${data.dir})`}
                 legend={["error", "warning"]}
                 action={{
                     label: "Rescanner",
@@ -42,12 +42,13 @@ export default function ImportPanel({ active }: PanelProps) {
                 }}
             />
             {stale && error && <Notice message={error} onRetry={refresh} />}
-            {data.truncated && (
+            {/* {data.truncated && (
                 <Notice message="Analyse partielle : les imports hors du périmètre ne sont pas vérifiés." />
             )}
             {data.isolation === "best-effort" && (
                 <Notice message="Isolation réseau « best-effort » (pas de namespace réseau sur cette machine)." />
-            )}
+            )} */}
+            <>Le service d'analyse d'imports sera bientôt disponible.</>
             <CheckList items={toCheckItems(data.findings)} />
         </div>
     );

@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 
+import AlfredPanel from "../agents/manifest/alfred-panel.js";
 import ImportPanel from "../agents/imports/import-panel.js";
 import SeoPanel from "../agents/seo/seo-panel.js";
 import type { NakasId } from "../core/team.js";
@@ -12,5 +13,6 @@ import type { PanelProps } from "./panel/agent-panel.js";
 export const PANELS: Readonly<Record<NakasId, ComponentType<PanelProps> | null>> = {
     amalia: ImportPanel,
     l: SeoPanel,
-    bob: null
+    bob: null,
+    alfred: AlfredPanel
 };

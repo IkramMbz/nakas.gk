@@ -19,7 +19,15 @@ export const LIMITS = Object.freeze({
     agentMaxFiles: 50,
     agentMaxFileBytes: 256 << 10,
     agentMaxTotalBytes: 2 << 20,
-    agentMaxDepth: 3
+    agentMaxDepth: 3,
+    // image transform (agents with `read: file`): the PARENT reads the file and writes the result
+    maxImageBytes: 8 << 20,
+    maxImagePixels: 16_000_000,
+    maxImageSide: 8192,
+    maxArtifacts: 40,
+    maxArtifactBytes: 4 << 20,
+    maxArtifactsTotalBytes: 16 << 20,
+    maxTransformOutputBytes: 24 << 20 // JSON result (base64 adds ~33 %)
 });
 
 export const CODE_EXT = new Set([
@@ -74,13 +82,14 @@ export const SKIP_FILES = new Set(["package-lock.json", "npm-shrinkwrap.json"]);
 // Permission ceiling a SKILL.md may DECLARE. Declaring more = agent rejected.
 // The runner never grants more than this ceiling, whatever the SKILL.md says.
 export const PERMISSION_CEILING = Object.freeze({
-    read: ["workspace", "none"],
+    read: ["workspace", "file", "none"],
     write: ["none"],
     network: ["none"],
     exec: ["none"]
 });
 
 // Node modules an agent may import (no network/process/fs access).
+// `zlib` is pure computation (deflate/inflate/crc32): needed by the PNG codec.
 export const AGENT_ALLOWED_BUILTINS = new Set([
     "path",
     "url",
@@ -89,7 +98,8 @@ export const AGENT_ALLOWED_BUILTINS = new Set([
     "buffer",
     "string_decoder",
     "crypto",
-    "events"
+    "events",
+    "zlib"
 ]);
 
 export const MIN_NODE = [22, 13, 0]; // stable --permission from this version

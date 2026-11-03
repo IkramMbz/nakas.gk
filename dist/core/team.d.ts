@@ -35,6 +35,18 @@ export declare const TEAM: readonly [{
         readonly background: "#E2F5DD";
         readonly mouth: "teeth-smile";
     };
+}, {
+    readonly id: "alfred";
+    readonly name: "Alfred";
+    readonly role: "Agent Manifest";
+    readonly skill: "manifest";
+    readonly appearance: {
+        readonly hair: "short-hair";
+        readonly skin: "#F2D3B3";
+        readonly hairColor: "#B8B8B8";
+        readonly background: "#D9E4F2";
+        readonly mouth: "awkward-smile";
+    };
 }];
 export type NakasId = (typeof TEAM)[number]["id"];
 //# sourceMappingURL=team.d.ts.map

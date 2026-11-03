@@ -1,0 +1,1 @@
+{"version":3,"file":"identity.js","sourceRoot":"","sources":["../../../src/agents/manifest/identity.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,MAAM,MAAM,GAAG;IAClB,EAAE,EAAE,QAAQ;IACZ,IAAI,EAAE,QAAQ;IACd,IAAI,EAAE,gBAAgB;IACtB,KAAK,EAAE,UAAU;IACjB,UAAU,EAAE;QACR,IAAI,EAAE,YAAY;QAClB,IAAI,EAAE,SAAS;QACf,SAAS,EAAE,SAAS;QACpB,UAAU,EAAE,SAAS;QACrB,KAAK,EAAE,eAAe;KACzB;CACqB,CAAC"}

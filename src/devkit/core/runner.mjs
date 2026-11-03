@@ -27,6 +27,12 @@ export async function runAgent({
 } = {}) {
     const t0 = Date.now();
     const agent = await loadAgent(root, name, { requireLock: true });
+    if (agent.permissions.read === "file") {
+        throw new DevkitError(
+            "E_USAGE",
+            `agent "${name}" : transformation de fichier, utiliser runTransform`
+        );
+    }
     const wsRoot = await resolveWorkspace(workspace);
     const scope = normalizeInclude(include);
 

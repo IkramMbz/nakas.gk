@@ -12,8 +12,8 @@
     --nakas-warning: #c9822f;
     --nakas-info: #4f7dc9;
 
-    --nakas-dock-bg: rgb(253 252 250 / 0.7);
-    --nakas-dock-bg-secondary: rgb(253 252 250 / 0.8);
+    --nakas-dock-bg: rgb(253 252 250 / 0.8);
+    --nakas-dock-bg-secondary: rgb(253 252 250 / 0.97);
     --nakas-dock-btn: rgb(28 27 25 / 0.06);
     --nakas-dock-btn-hover: rgb(28 27 25 / 0.12);
     --nakas-dock-dot: #1c1919;
@@ -55,8 +55,8 @@
         --nakas-warning: #dd9843;
         --nakas-info: #6b97e0;
 
-        --nakas-dock-bg: rgb(30 33 43 / 0.7);
-        --nakas-dock-bg-secondary: rgb(30 33 43 / 0.8);
+        --nakas-dock-bg: rgb(30 33 43 / 0.8);
+        --nakas-dock-bg-secondary: rgb(30 33 43 / 0.97);
         --nakas-dock-btn: rgb(255 255 255 / 0.08);
         --nakas-dock-btn-hover: rgb(255 255 255 / 0.18);
         --nakas-dock-dot: #cbd2e1;

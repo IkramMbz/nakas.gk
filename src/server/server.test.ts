@@ -31,7 +31,7 @@ describe("API", () => {
         const api = createNakasApi();
         expect((await api.handle({ method: "GET", url: "/api/nakas/health" })).body).toMatchObject({
             ok: true,
-            tools: ["imports"]
+            tools: ["imports", "manifest"]
         });
         expect((await api.handle({ method: "GET", url: "/api/nakas/nope" })).status).toBe(404);
         const post = await api.handle({ method: "POST", url: "/api/nakas/imports" });

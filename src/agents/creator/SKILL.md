@@ -72,8 +72,8 @@ Every part uses exactly:
 
 - Write files with LF line endings only, never CRLF. Check with
   `grep -c $'\r' file.svg` (must print 0).
-- Never put `<metadata>`, XML comments or editor attributes (inkscape:*,
-  sodipodi:*) in the file. Delivery re-adds a C2PA block anyway, so the
+- Never put `<metadata>`, XML comments or editor attributes (inkscape:_,
+  sodipodi:_) in the file. Delivery re-adds a C2PA block anyway, so the
   validator must strip it (see "Known issue").
 - On Windows, saving or pasting a file in an editor can turn LF into CRLF,
   and Git then warns "CRLF will be replaced by LF". This is not an SVG error.
@@ -171,13 +171,11 @@ function parse(text) {
     const inner = m[2].trim();
     if (!inner) throw new Error("no elements");
 
-    for (const [re, label] of FORBIDDEN)
-        if (re.test(inner)) throw new Error("forbidden: " + label);
+    for (const [re, label] of FORBIDDEN) if (re.test(inner)) throw new Error("forbidden: " + label);
 
     for (const [, name] of inner.matchAll(/\{\{\s*([^}]*?)\s*\}\}/g))
         if (!TOKENS.includes(name)) throw new Error("unknown token {{" + name + "}}");
-    if (/\{\{\s/.test(inner) || /\s\}\}/.test(inner))
-        throw new Error("malformed token");
+    if (/\{\{\s/.test(inner) || /\s\}\}/.test(inner)) throw new Error("malformed token");
 
     const stack = [];
     for (const t of inner.matchAll(/<(\/?)([A-Za-z][\w:-]*)[^<>]*?(\/?)>/g)) {

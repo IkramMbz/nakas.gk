@@ -21,7 +21,7 @@ describe("montage vanille", () => {
         await act(async () => {});
         const host = document.querySelector(`[${HOST_ATTRIBUTE}]`);
         expect(host?.shadowRoot?.querySelector(".nakas-root")).not.toBeNull();
-        expect(host?.shadowRoot?.querySelectorAll(".nakas-dock-btn").length).toBe(3);
+        expect(host?.shadowRoot?.querySelectorAll(".nakas-dock-btn").length).toBe(4);
         expect(document.querySelector(".nakas-root")).toBeNull(); // nothing leaks into the page
 
         mount({ enabled: true });
