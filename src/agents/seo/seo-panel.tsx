@@ -1,7 +1,7 @@
 import { CheckList } from "../../ui/checker/check-list.js";
 import { CheckerHeader } from "../../ui/checker/checker-header.js";
 import { useNakasConfig } from "../../ui/config-context.js";
-import type { PanelProps } from "../../ui/panel/agent-panel.js";
+import type { PanelProps } from "../../ui/panel/panel-content.js";
 import { complianceOf, toCheckItems } from "./audit-view.js";
 import { useSeoAudit } from "./use-seo-audit.js";
 

@@ -31,7 +31,13 @@ export const alfredTool: ServerTool = async ({ root, options, token }) => {
     try {
         const dir = await resolveConfinedDir(root, manifest.publicDir);
         const images = await listConfinedFiles(dir, { exts: IMAGE_EXTS });
-        return { dir: manifest.publicDir, exists: true, problem: null, images, ...status } satisfies AlfredStatus;
+        return {
+            dir: manifest.publicDir,
+            exists: true,
+            problem: null,
+            images,
+            ...status
+        } satisfies AlfredStatus;
     } catch (e) {
         if (!(e instanceof DevkitError)) throw e;
         return {
@@ -49,11 +55,14 @@ const usage = (message: string): never => {
 };
 
 function parseBody(body: unknown): { file: string; center: boolean } {
-    if (typeof body !== "object" || body === null || Array.isArray(body)) return usage("corps invalide");
+    if (typeof body !== "object" || body === null || Array.isArray(body))
+        return usage("corps invalide");
     const fields = new Map<string, unknown>(Object.entries(body));
-    if ([...fields.keys()].some((k) => k !== "file" && k !== "center")) return usage("champ inconnu");
+    if ([...fields.keys()].some((k) => k !== "file" && k !== "center"))
+        return usage("champ inconnu");
     const file = fields.get("file");
-    if (typeof file !== "string" || file.length === 0 || file.length > 200) return usage("image invalide");
+    if (typeof file !== "string" || file.length === 0 || file.length > 200)
+        return usage("image invalide");
     const center = fields.get("center") ?? true;
     if (typeof center !== "boolean") return usage("« center » doit être un booléen");
     return { file, center };

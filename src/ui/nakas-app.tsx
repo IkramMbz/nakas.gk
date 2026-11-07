@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { avatarSrc } from "../core/avatar.js";
 import type { NakasConfig } from "../core/options.js";
@@ -9,12 +9,53 @@ import { useDismiss } from "./dock/use-dismiss.js";
 import AgentPanel from "./panel/agent-panel.js";
 import { PANELS } from "./panels.js";
 
-/** UI root: the Nakas dock and the open Nakas's panel. */
+const DOCK_HIDDEN_KEY = "nakas-gk:dock-hidden";
+const MONTHS_MS = 12 * 30 * 24 * 60 * 60 * 1000; // Twelve months.
+
+function isDockHiddenRecord(value: unknown): value is { hidden: boolean; timestamp: number } {
+    if (typeof value !== "object" || value === null) return false;
+    return "hidden" in value && "timestamp" in value &&
+        typeof value.hidden === "boolean" && typeof value.timestamp === "number";
+}
+
+function readDockHidden(): boolean {
+    try {
+        const raw = localStorage.getItem(DOCK_HIDDEN_KEY);
+        if (!raw) return false;
+
+        const parsed: unknown = JSON.parse(raw);
+        if (!isDockHiddenRecord(parsed)) return false;
+
+        if (Date.now() - parsed.timestamp > MONTHS_MS) {
+            localStorage.removeItem(DOCK_HIDDEN_KEY);
+            return false;
+        }
+
+        return parsed.hidden;
+    } catch {
+        return false;
+    }
+}
+
+function writeDockHidden(hidden: boolean): void {
+    try {
+        localStorage.setItem(DOCK_HIDDEN_KEY, JSON.stringify({ hidden, timestamp: Date.now() }));
+    } catch {
+        // storage indisponible — état gardé en mémoire pour la session
+    }
+}
+
 export default function NakasApp({ config }: { config: NakasConfig }) {
     const [openId, setOpenId] = useState<NakasId | null>(null);
+    const [minimizedId, setMinimizedId] = useState<NakasId | null>(null);
+    const [dockHidden, setDockHidden] = useState(readDockHidden);
     const root = useRef<HTMLDivElement>(null);
 
     useDismiss(openId !== null, root, () => setOpenId(null));
+
+    useEffect(() => {
+        writeDockHidden(dockHidden);
+    }, [dockHidden]);
 
     const items = useMemo<DockItem[]>(
         () =>
@@ -38,16 +79,54 @@ export default function NakasApp({ config }: { config: NakasConfig }) {
         [openId]
     );
 
+    const minimizedItem: DockItem | undefined = minimizedId
+        ? {
+            id: minimizedId,
+            label: TEAM.find((n) => n.id === minimizedId)?.name ?? "Nakas",
+            title: "Restaurer le Nakas",
+            active: true,
+            onClick: () => {
+                setOpenId(minimizedId);
+                setMinimizedId(null);
+            },
+            img: <span className="nakas-minimized-icon">↗</span>
+        }
+        : undefined;
+
     return (
         <ConfigProvider value={config}>
             <div className="nakas-root" ref={root} data-has-open={openId !== null}>
                 <div className="nakas-stage">
-                    <Dock items={items} maxWidth={680} imgSize={44} />
+                    {!dockHidden && (
+                        <Dock
+                            items={items}
+                            minimizedItem={minimizedItem}
+                            maxWidth={680}
+                            imgSize={44}
+                            onClose={() => setDockHidden(true)}
+                        />
+                    )}
                 </div>
+
+                {dockHidden && (
+                    <button
+                        type="button"
+                        className="nakas-dock-reopen"
+                        onClick={() => setDockHidden(false)}
+                        aria-label="Afficher le Dock"
+                        title="Afficher le Dock"
+                    >
+                        Nakas
+                    </button>
+                )}
+
                 <AgentPanel
                     nakas={TEAM.find((n) => n.id === openId)}
                     panels={PANELS}
-                    onClose={() => setOpenId(null)}
+                    onClose={() => {
+                        setMinimizedId(openId);
+                        setOpenId(null);
+                    }}
                 />
             </div>
         </ConfigProvider>

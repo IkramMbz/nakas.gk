@@ -1,1 +1,1 @@
-{"version":3,"file":"alfred-panel.d.ts","sourceRoot":"","sources":["../../../src/agents/manifest/alfred-panel.tsx"],"names":[],"mappings":"AAMA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,+BAA+B,CAAC;AAkBhE,MAAM,CAAC,OAAO,UAAU,WAAW,CAAC,EAAE,MAAM,EAAE,EAAE,UAAU,+BA+IzD"}
+{"version":3,"file":"alfred-panel.d.ts","sourceRoot":"","sources":["../../../src/agents/manifest/alfred-panel.tsx"],"names":[],"mappings":"AAMA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,iCAAiC,CAAC;AAkBlE,MAAM,CAAC,OAAO,UAAU,WAAW,CAAC,EAAE,MAAM,EAAE,EAAE,UAAU,+BA+IzD"}

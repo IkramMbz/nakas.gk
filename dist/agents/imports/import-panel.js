@@ -24,6 +24,6 @@ export default function ImportPanel({ active }) {
                     busyLabel: "Analyse…",
                     busy: refreshing,
                     onClick: refresh
-                } }), stale && error && _jsx(Notice, { message: error, onRetry: refresh }), _jsx(_Fragment, { children: "Le service d'analyse d'import sera bient\u00F4t disponible." }), _jsx(CheckList, { items: toCheckItems(data.findings) })] }));
+                } }), stale && error && _jsx(Notice, { message: error, onRetry: refresh }), _jsx(_Fragment, { children: "Le service d'analyse d'imports sera bient\u00F4t disponible." }), _jsx(CheckList, { items: toCheckItems(data.findings) })] }));
 }
 //# sourceMappingURL=import-panel.js.map

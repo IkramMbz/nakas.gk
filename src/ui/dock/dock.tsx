@@ -9,8 +9,15 @@ import { arrowNav } from "./utils.js";
 
 export type { DockItem, DockProps };
 
+interface Props extends DockProps {
+    minimizedItem?: DockItem;
+    onClose?: () => void;
+}
+
 export default function Dock({
     items,
+    minimizedItem,
+    onClose,
     maxWidth = 680,
     imgSize = 44,
     gap = 8,
@@ -20,7 +27,7 @@ export default function Dock({
     overflowLabel = "Autres Nakas",
     searchable = true,
     searchThreshold = 5
-}: DockProps) {
+}: Props) {
     const menuId = useId();
     const ref = useRef<HTMLDivElement>(null);
     const [open, setOpen] = useState(false);
@@ -56,6 +63,10 @@ export default function Dock({
                 {shown.map((item) => (
                     <DockButton key={item.id} item={item} onPick={pick} />
                 ))}
+
+                {minimizedItem && (
+                    <DockButton key={minimizedItem.id} item={minimizedItem} onPick={pick} />
+                )}
             </div>
 
             {over && (
@@ -87,6 +98,18 @@ export default function Dock({
                         />
                     )}
                 </div>
+            )}
+
+            {onClose && (
+                <button
+                    type="button"
+                    className="nakas-dock-close"
+                    onClick={onClose}
+                    aria-label="Fermer le Dock"
+                    title="Fermer"
+                >
+                    ×
+                </button>
             )}
         </div>
     );

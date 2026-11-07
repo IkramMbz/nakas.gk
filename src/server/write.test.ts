@@ -180,7 +180,9 @@ describe("POST : contrôles de sécurité (aucun outil exécuté en cas de refus
         const options = { allowedOrigins: [APP] };
         const cross = post({ host: "127.0.0.1:4321", origin: APP, fetchSite: "cross-site" });
         expect((await api(options).handle(cross)).status).toBe(200);
-        expect((await api(options).handle({ ...cross, origin: "http://localhost:4201" })).status).toBe(403);
+        expect(
+            (await api(options).handle({ ...cross, origin: "http://localhost:4201" })).status
+        ).toBe(403);
         expect((await api().handle(cross)).status).toBe(403); // pas de liste = same-origin seulement
     });
 
@@ -202,7 +204,9 @@ describe("POST : contrôles de sécurité (aucun outil exécuté en cas de refus
     it("une seule écriture à la fois : 429", async () => {
         let calls = 0;
         const slow = vi.fn<WriteTool>(() =>
-            ++calls === 1 ? new Promise((done) => setTimeout(() => done({}), 150)) : Promise.resolve({})
+            ++calls === 1
+                ? new Promise((done) => setTimeout(() => done({}), 150))
+                : Promise.resolve({})
         );
         const a = createNakasApi({ tools: {}, writeTools: { echo: slow } });
         const first = a.handle(post());
@@ -213,7 +217,9 @@ describe("POST : contrôles de sécurité (aucun outil exécuté en cas de refus
     });
 
     it("erreur inattendue : message générique, rien ne fuit", async () => {
-        const res = await createNakasApi({ tools: {}, writeTools: { echo: failing } }).handle(post());
+        const res = await createNakasApi({ tools: {}, writeTools: { echo: failing } }).handle(
+            post()
+        );
         expect(res.status).toBe(500);
         expect(JSON.stringify(res.body)).not.toContain("secret");
     });
@@ -263,7 +269,9 @@ describe("Alfred : de bout en bout", () => {
         const res = await run(root, { file: "logo.png", center: true });
         expect(res.status).toBe(200);
         const result = res.body as { folder: string; files: string[] };
-        expect(result.folder).toMatch(/^public\/nakas-manifest-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}$/);
+        expect(result.folder).toMatch(
+            /^public\/nakas-manifest-\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}$/
+        );
         expect(result.files).toHaveLength(ICON_FILES.length + 1);
         expect(result.files).toContain("manifest.json");
 
@@ -279,8 +287,18 @@ describe("Alfred : de bout en bout", () => {
 
     it("refuse tout ce qui n'est pas une image listée par le serveur", async () => {
         const root = await project();
-        const names = ["../public/logo.png", "../../etc/passwd", ".env", "notes.txt", "nope.png", "a/b.png", "logo.png\0"];
-        const statuses = await Promise.all(names.map(async (file) => (await run(root, { file })).status));
+        const names = [
+            "../public/logo.png",
+            "../../etc/passwd",
+            ".env",
+            "notes.txt",
+            "nope.png",
+            "a/b.png",
+            "logo.png\0"
+        ];
+        const statuses = await Promise.all(
+            names.map(async (file) => (await run(root, { file })).status)
+        );
         expect(statuses).toEqual(names.map(() => 400));
         expect(await generated(root)).toEqual([]);
     });
@@ -361,7 +379,9 @@ describe("serveur autonome (HTTP réel)", () => {
                 headers: { Origin: APP, "Access-Control-Request-Method": "POST" }
             });
             expect(pre.headers.get("access-control-allow-methods")).toBe("GET, POST");
-            expect(pre.headers.get("access-control-allow-headers")?.toLowerCase()).toContain("x-nakas-token");
+            expect(pre.headers.get("access-control-allow-headers")?.toLowerCase()).toContain(
+                "x-nakas-token"
+            );
 
             const status = (await (
                 await fetch(`${server.url}/api/nakas/manifest`, { headers: { Origin: APP } })

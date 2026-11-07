@@ -4,7 +4,7 @@ import { CheckerHeader } from "../../ui/checker/checker-header.js";
 import { Notice } from "../../ui/checker/notice.js";
 import { useNakasConfig } from "../../ui/config-context.js";
 import { useRemoteResource } from "../../ui/hooks/use-remote-resource.js";
-import type { PanelProps } from "../../ui/panel/agent-panel.js";
+import type { PanelProps } from "../../ui/panel/panel-content.js";
 import { isAlfredResult, isAlfredStatus, type AlfredResult } from "./types.js";
 
 const POLL_MS = 4000;

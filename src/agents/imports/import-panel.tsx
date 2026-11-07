@@ -3,7 +3,7 @@ import { CheckerHeader } from "../../ui/checker/checker-header.js";
 import { Notice } from "../../ui/checker/notice.js";
 import { useNakasConfig } from "../../ui/config-context.js";
 import { useRemoteResource } from "../../ui/hooks/use-remote-resource.js";
-import type { PanelProps } from "../../ui/panel/agent-panel.js";
+import type { PanelProps } from "../../ui/panel/panel-content.js";
 import { isImportAudit, summarize, toCheckItems } from "./audit-view.js";
 
 const POLL_MS = 3000;
