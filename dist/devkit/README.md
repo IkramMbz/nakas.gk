@@ -1,4 +1,4 @@
-# DevKit — local diagnostic agents
+# DevKit - local diagnostic agents
 
 An agent = a folder: `SKILL.md` (instructions + declared permissions) and an `.mjs` script.
 Scripts run the verifiable checks; the model reasons over the JSON they produce.

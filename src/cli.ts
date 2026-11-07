@@ -4,7 +4,7 @@ import process from "node:process";
 
 import { startNakasServer } from "./server/node.js";
 
-const HELP = `nakas — serveur de développement autonome (boucle locale uniquement)
+const HELP = `nakas - serveur de développement autonome (boucle locale uniquement)
 
   nakas serve [projet] [--port 4321] [--strict]
 

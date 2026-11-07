@@ -1,12 +1,16 @@
 # Changelog
 
-## 0.4.1 — overhaul
+## 0.4.2 - Overhaul
 
 **Breaking changes**
 
 - A single type: `Nakas` (the `Agent` type is removed).
 - Entry points: `nakas-gk` (`mountNakas`), `nakas-gk/react` (`<Nakas />`), `nakas-gk/server`, `nakas-gk/auto`, `nakas-gk/avatars`, `nakas-gk/devkit`. The `nakas` export (lowercase component) and `nakas-gk/styles.css` are gone: the CSS is embedded in a shadow DOM.
 - `imports.dir` (server) becomes `imports.dirs`.
+
+**Added**
+
+- Dock: minimize/close with a reopen button, state persisted across reloads (13-month expiry).
 
 **Fixed**
 

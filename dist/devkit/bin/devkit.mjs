@@ -5,7 +5,7 @@ import { loadAgent } from "../core/agent.mjs";
 import { listAgentNames, loadLock, saveLock } from "../core/lock.mjs";
 import { cleanText } from "../core/sanitize.mjs";
 
-const HELP = `devkit — agents de diagnostic locaux, lecture seule, isolés
+const HELP = `devkit - agents de diagnostic locaux, lecture seule, isolés
 
   devkit run <agent> [workspace] [--json] [--strict]
   devkit list
@@ -42,7 +42,7 @@ async function main() {
         for (const n of await listAgentNames(DEFAULT_ROOT)) {
             const a = await loadAgent(DEFAULT_ROOT, n, { requireLock: false });
             print(
-                `${n}${lock.get(n) === a.sha256 ? "" : "  [NON VERROUILLÉ]"}  — ${cleanText(a.description, 120)}`
+                `${n}${lock.get(n) === a.sha256 ? "" : "  [NON VERROUILLÉ]"}  - ${cleanText(a.description, 120)}`
             );
         }
         return 0;
@@ -87,7 +87,7 @@ async function main() {
             }
             const n = (s) => res.findings.filter((f) => f.severity === s).length;
             print(
-                `\n${res.agent.name} : ${n("error")} erreur(s), ${n("warning")} avertissement(s), ${n("info")} info — ${res.workspace.files} fichiers lus en ${res.durationMs} ms`
+                `\n${res.agent.name} : ${n("error")} erreur(s), ${n("warning")} avertissement(s), ${n("info")} info - ${res.workspace.files} fichiers lus en ${res.durationMs} ms`
             );
             if (res.workspace.truncated)
                 print("⚠ workspace tronqué (limites atteintes) : résultats partiels");
@@ -95,7 +95,7 @@ async function main() {
                 print(`⚠ ${res.rejected} finding(s) invalide(s) rejeté(s) par le runner`);
             if (res.isolation.network !== "netns")
                 print(
-                    '⚠ isolation réseau en mode "best-effort" (pas de namespace) — voir SECURITY.md, utilise --strict pour refuser'
+                    '⚠ isolation réseau en mode "best-effort" (pas de namespace) - voir SECURITY.md, utilise --strict pour refuser'
                 );
         }
         return res.findings.some((f) => f.severity === "error") ? 1 : 0;

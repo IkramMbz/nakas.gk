@@ -44,7 +44,7 @@ export async function readAgentTree(dir) {
             if (!AGENT_EXT.has(path.extname(d.name).toLowerCase())) {
                 throw new DevkitError(
                     "E_POLICY",
-                    `agent : extension non autorisée (${r}) — permis : ${[...AGENT_EXT].join(" ")}`
+                    `agent : extension non autorisée (${r}) - permis : ${[...AGENT_EXT].join(" ")}`
                 );
             }
             if (entries.length >= LIMITS.agentMaxFiles)

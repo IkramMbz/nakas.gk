@@ -15,7 +15,13 @@ export const alfredTool = async ({ root, options, token }) => {
     try {
         const dir = await resolveConfinedDir(root, manifest.publicDir);
         const images = await listConfinedFiles(dir, { exts: IMAGE_EXTS });
-        return { dir: manifest.publicDir, exists: true, problem: null, images, ...status };
+        return {
+            dir: manifest.publicDir,
+            exists: true,
+            problem: null,
+            images,
+            ...status
+        };
     }
     catch (e) {
         if (!(e instanceof DevkitError))

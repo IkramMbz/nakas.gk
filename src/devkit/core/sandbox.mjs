@@ -172,7 +172,7 @@ export async function runSandboxed({
         if (result.code !== 0 && outChunks.length === 0) {
             throw new DevkitError(
                 "E_SANDBOX",
-                `agent terminé anormalement (code=${result.code} signal=${result.signal}) — mémoire ou plantage`
+                `agent terminé anormalement (code=${result.code} signal=${result.signal}) - mémoire ou plantage`
             );
         }
         let parsed;

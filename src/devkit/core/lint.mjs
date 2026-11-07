@@ -1,7 +1,7 @@
 // Static tripwire, NOT a security boundary. It catches agents that
 // clearly signal hostile or careless intent, to reject early
 // with a useful message. The real boundary is sandbox.mjs (--permission,
-// no workspace access, empty env, netns, limits) — see SECURITY.md.
+// no workspace access, empty env, netns, limits) - see SECURITY.md.
 import { DevkitError } from "./errors.mjs";
 import { AGENT_ALLOWED_BUILTINS } from "./policy.mjs";
 

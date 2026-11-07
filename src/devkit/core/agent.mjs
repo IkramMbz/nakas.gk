@@ -26,12 +26,12 @@ export async function loadAgent(root, name, { requireLock = true } = {}) {
         if (!lock.has(name))
             throw new DevkitError(
                 "E_LOCK",
-                `agent "${name}" absent de agents.lock — refus d'exécuter`
+                `agent "${name}" absent de agents.lock - refus d'exécuter`
             );
         if (lock.get(name) !== sha256) {
             throw new DevkitError(
                 "E_LOCK",
-                `agent "${name}" modifié depuis agents.lock — refus d'exécuter (relis le diff puis : devkit lock)`
+                `agent "${name}" modifié depuis agents.lock - refus d'exécuter (relis le diff puis : devkit lock)`
             );
         }
     }

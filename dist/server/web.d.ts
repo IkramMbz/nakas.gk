@@ -5,7 +5,7 @@ import type { NakasServerOptions } from "./types.js";
  *
  * Export it for GET (read) AND POST (Alfred writes files): both go through the same checks.
  *
- * @example Next.js — `app/api/nakas/[...path]/route.ts`
+ * @example Next.js - `app/api/nakas/[...path]/route.ts`
  * export const dynamic = "force-dynamic";
  * const handler = createNakasHandler();
  * export const GET = handler;

@@ -6,10 +6,10 @@ src/
   standalone.ts                                        standalone browser bundle (React included)
   core/        types and rules with no DOM or Node: Nakas, team, environment, options, avatar
   agents/      one folder per Nakas: identity.ts + panel (UI) + server.ts (server tool) + SKILL.md
-    imports/   Amalia  — import analysis (panel + server tool → devkit)
-    seo/       L       — DOM SEO audit (audit/context + audit/checks/* + panel)
-    creator/   Bob     — SKILL.md for creating Nakas
-    manifest/  Alfred  — PWA icons + manifest.json (panel + server tools GET/POST → devkit)
+    imports/   Amalia  - import analysis (panel + server tool → devkit)
+    seo/       L       - DOM SEO audit (audit/context + audit/checks/* + panel)
+    creator/   Bob     - SKILL.md for creating Nakas
+    manifest/  Alfred  - PWA icons + manifest.json (panel + server tools GET/POST → devkit)
     tools.server.ts    server route registry: SERVER_TOOLS (GET) and WRITE_TOOLS (POST)
   ui/          shared UI: dock/, panel/, checker/ (common kit), hooks/, shadow DOM, panels.tsx
   browser/     mount.tsx: vanilla mounting (React inside)

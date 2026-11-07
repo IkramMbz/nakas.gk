@@ -67,4 +67,4 @@ Each avatar costs a few dozen hashes and some string concatenation; nothing is p
 
 ## Licenses
 
-Code: MIT. Big Smile illustrations © Ashley Seo, **CC BY 4.0** — **visible credit is required in your applications**, see [NOTICE.md](./NOTICE.md).
+Code: MIT. Big Smile illustrations © Ashley Seo, **CC BY 4.0** - **visible credit is required in your applications**, see [NOTICE.md](./NOTICE.md).

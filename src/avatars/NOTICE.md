@@ -4,7 +4,7 @@ This package contains two distinct sets of files under distinct licenses.
 
 ## Code (`src/`, `scripts/`, `test/`)
 
-MIT — see [LICENSE](./LICENSE).
+MIT - see [LICENSE](./LICENSE).
 
 ## Illustrations (`assets/`)
 
@@ -14,7 +14,7 @@ MIT — see [LICENSE](./LICENSE).
 
 **Credit to include in your applications** (CC BY 4.0 requires crediting the author, linking the license and indicating changes):
 
-> Avatars: "Big Smile" by Ashley Seo, based on "Custom Avatar" — CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/ — adapted (see below).
+> Avatars: "Big Smile" by Ashley Seo, based on "Custom Avatar" - CC BY 4.0 - https://creativecommons.org/licenses/by/4.0/ - adapted (see below).
 
 ### Changes made
 

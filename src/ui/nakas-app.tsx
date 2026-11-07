@@ -41,7 +41,7 @@ function writeDockHidden(hidden: boolean): void {
     try {
         localStorage.setItem(DOCK_HIDDEN_KEY, JSON.stringify({ hidden, timestamp: Date.now() }));
     } catch {
-        // storage indisponible — état gardé en mémoire pour la session
+        // storage indisponible - état gardé en mémoire pour la session
     }
 }
 

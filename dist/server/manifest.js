@@ -54,7 +54,9 @@ export function resolveManifest(options, root) {
     const projectName = path.basename(root) || "app";
     const name = text(o.name, "name", projectName, 100) || projectName;
     const iconsBasePath = o.iconsBasePath === undefined ? "/manifest" : o.iconsBasePath;
-    if (!ICON_PATH.test(iconsBasePath) || iconsBasePath.includes("..") || iconsBasePath.includes("//")) {
+    if (!ICON_PATH.test(iconsBasePath) ||
+        iconsBasePath.includes("..") ||
+        iconsBasePath.includes("//")) {
         bad("iconsBasePath");
     }
     return {
@@ -78,7 +80,12 @@ export function buildManifestJson(m) {
     const icons = MANIFEST_SIZES.flatMap((size) => {
         const sizes = `${size}x${size}`;
         return [
-            { src: `${m.iconsBasePath}/icon-${sizes}.png`, sizes, type: "image/png", purpose: "any" },
+            {
+                src: `${m.iconsBasePath}/icon-${sizes}.png`,
+                sizes,
+                type: "image/png",
+                purpose: "any"
+            },
             {
                 src: `${m.iconsBasePath}/maskable-icon-${sizes}.png`,
                 sizes,
