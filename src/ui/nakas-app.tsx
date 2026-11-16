@@ -9,7 +9,7 @@ import { useDismiss } from "./dock/use-dismiss.js";
 import AgentPanel from "./panel/agent-panel.js";
 import { PANELS } from "./panels.js";
 
-const DOCK_HIDDEN_KEY = "nakas-gk:dock-hidden";
+const DOCK_HIDDEN_KEY = "__Host-nakas-gk_pref_dock_hidden";
 const MONTHS_MS = 12 * 30 * 24 * 60 * 60 * 1000; // Twelve months.
 
 function isDockHiddenRecord(value: unknown): value is { hidden: boolean; timestamp: number } {
