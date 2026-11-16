@@ -76,72 +76,168 @@ The UI lives in a **shadow DOM**: it inherits no CSS from your page, doesn't alt
 
 ## Installation
 
+Install nakas.gk using pnpm:
+
 ```bash
 pnpm add -D https://github.com/IkramMbz/nakas.gk
 ```
 
-## Integration (2 steps: client, then server for Amalia)
+## Integration
 
-The SEO audit works with the client alone. The Imports panel needs a `GET /api/nakas/*` route in development.
+The integration has two parts:
 
-### Vite · Astro · SvelteKit · Nuxt (Vite plugin)
+1. **Client:** mounts the Nakas dock and enables the SEO auditor.
+2. **Server:** exposes the development API required by Amalia (import analysis).
+
+The SEO audit works with the client alone. The Imports panel requires a `GET /api/nakas/*` development route.
+
+### Vite · Astro · SvelteKit · Nuxt
+
+#### 1. Server integration
+
+Add the Nakas Vite plugin to your Vite configuration.
+
+**Vite - `vite.config.ts`**
 
 ```ts
-// vite.config.ts (Astro: `vite: { plugins: [nakas()] }` in astro.config)
 import { nakas } from "nakas-gk/server";
-export default { plugins: [nakas()] };
+
+export default {
+  plugins: [nakas()]
+};
 ```
 
+**Astro - `astro.config.ts`**
+
+Add the plugin to your existing Astro configuration:
+
 ```ts
-// client entry point (Astro: <script> in the layout)
+import { defineConfig } from "astro/config";
+import { nakas } from "nakas-gk/server";
+
+export default defineConfig({
+  vite: {
+    plugins: [nakas()]
+  }
+});
+```
+
+If you already have other Astro integrations, adapters, or Vite plugins, keep them and add `nakas()` to the existing `vite.plugins` array.
+
+#### 2. Client integration
+
+Mount Nakas from your application entry point.
+
+**Vite - client entry point**
+
+```ts
 import { mountNakas } from "nakas-gk";
+
 void mountNakas();
 ```
 
+**Astro - `src/components/Head.astro`**
+
+If your project uses a dedicated Head component, add the following code at the end of `src/components/Head.astro`, inside the component's HTML `<head>`.
+
+```astro
+{import.meta.env.DEV && (
+  <script>
+    import { mountNakas } from "nakas-gk";
+
+    void mountNakas({ enabled: true });
+  </script>
+)}
+```
+
+**Important:**
+- The code must be placed inside your `Head.astro` component, within the HTML `<head>`.
+- Do not use `is:inline` on this script. Astro must process it through Vite to resolve the `nakas-gk` package correctly.
+- `import.meta.env.DEV` ensures Nakas is loaded only during development.
+- `enabled: true` forces the dock to appear, even if local host detection does not recognize your development environment.
+
+If you don't have a dedicated `Head.astro` component, place the same code inside the `<head>` of your main Astro layout.
+
 ### React (Vite, Remix…)
+
+Import and render the Nakas component inside your React application.
 
 ```tsx
 import { Nakas } from "nakas-gk/react";
-<Nakas />; // uses your app's React
+
+<Nakas />; // Uses your app's React
 ```
 
 ### Next.js (App Router)
 
+**Server route - `app/api/nakas/[...path]/route.ts`**
+
 ```ts
-// app/api/nakas/[...path]/route.ts
 import { createNakasHandler } from "nakas-gk/server";
+
 export const dynamic = "force-dynamic";
 export const GET = createNakasHandler();
 ```
 
+**Client - `app/layout.tsx`**
+
+Import Nakas from the React entry point and render it inside `<body>`.
+
 ```tsx
-// app/layout.tsx: <Nakas /> can be rendered from a Server Component
 import { Nakas } from "nakas-gk/react";
-// …inside <body>: <Nakas />
+
+// Inside <body>:
+<Nakas />
 ```
 
 ### Vue
 
+Mount Nakas when the component is mounted and clean it up when the component is destroyed.
+
 ```ts
 import { onMounted, onBeforeUnmount } from "vue";
 import { mountNakas, type NakasHandle } from "nakas-gk";
+
 let handle: NakasHandle | undefined;
-onMounted(async () => (handle = await mountNakas()));
+
+onMounted(async () => {
+  handle = await mountNakas();
+});
+
 onBeforeUnmount(() => handle?.unmount());
 ```
 
 ### Angular, or any project without server integration
 
+Start the standalone development server:
+
 ```bash
-npx nakas serve . # http://127.0.0.1:4321/api/nakas (loopback only)
+npx nakas serve .
 ```
+
+The API will be available at:
+
+`http://127.0.0.1:4321/api/nakas`
+
+The server is loopback-only.
+
+Then mount the client:
 
 ```ts
 import { mountNakas } from "nakas-gk";
-void mountNakas({ endpoint: "http://127.0.0.1:4321/api/nakas" }); // ngAfterViewInit
+
+void mountNakas({
+  endpoint: "http://127.0.0.1:4321/api/nakas"
+});
 ```
 
-### No code: `import "nakas-gk/auto";`
+### No-code client integration
+
+For supported setups where package resolution is handled by the bundler, you can automatically mount Nakas without explicitly calling `mountNakas()`.
+
+```ts
+import "nakas-gk/auto";
+```
 
 ### Options (`mountNakas` / `<Nakas />`)
 
