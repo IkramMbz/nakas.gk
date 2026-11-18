@@ -17,7 +17,7 @@
   <p>
     <a href="https://github.com/IkramMbz/nakas.gk/releases"><img src="https://img.shields.io/badge/release-v0.4.2-white" alt="Release v0.4.2"></a>
     <a href="https://glitchkids.space/"><img src="https://img.shields.io/badge/Glitch%20Kids-Suite-black" alt="Glitch Kids Suite"></a>
-    <a href="https://github.com/IkramMbz/nakas.gk/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
+    <a href="https://github.com/IkramMbz/nakas.gk/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a>
     <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-%E2%89%A5%2022.13-339933?logo=node.js&logoColor=white" alt="Node.js >= 22.13"></a>
     <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript"></a>
   </p>
