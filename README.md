@@ -3,7 +3,6 @@
     <img
       src="assets/media/img/nakas-gk-banner.jpg"
       alt="nakas.gk Logo"
-      width="136"
     >
   </a>
 
