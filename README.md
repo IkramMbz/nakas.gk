@@ -6,7 +6,7 @@
     >
   </a>
 
-  <hr />
+  <h1>nakas.gk by Glitch Kids</h1>
 
   <p>
     <strong>Live SEO audit and import analysis for your React app, right in the browser during development.</strong>
@@ -16,7 +16,7 @@
 
   <p>
     <img src="https://img.shields.io/badge/release-v0.4.2-white" alt="Release v0.4.2">
-    <img src="https://img.shields.io/badge/Glitch%20Kids-Suite-black" alt="Glitch Kids Suite">
+    <a href="https://glitchkids.space/"><img src="https://img.shields.io/badge/Glitch%20Kids-Suite-black" alt="Glitch Kids Suite"></a>
     <img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License">
     <img src="https://img.shields.io/badge/Node.js-%E2%89%A5%2022.13-339933?logo=node.js&logoColor=white" alt="Node.js >= 22.13">
     <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
