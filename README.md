@@ -1,7 +1,7 @@
 <div align="center">
   <a href="https://github.com/IkramMbz/nakas.gk">
     <img
-      src="assets/media/img/nakas-gk-banner.jpg"
+      src="assets/media/img/nakas-gk-banner.png"
       alt="nakas.gk Logo"
     >
   </a>
@@ -156,9 +156,9 @@ export default defineConfig({
 
 If you already have other Astro integrations, adapters, or Vite plugins, keep them and add `nakas()` to the existing `vite.plugins` array.
 
-**Client** — `src/components/Head.astro`
+**Client**
 
-If your project uses a dedicated Head component, add the following code at the end of `src/components/Head.astro`, inside the component's HTML `<head>`.
+Add the following script inside the `<head>` of your main Astro layout (or of the component that renders your `<head>`, if you have one).
 
 ```astro
 {import.meta.env.DEV && (
@@ -171,12 +171,10 @@ If your project uses a dedicated Head component, add the following code at the e
 ```
 
 > [!IMPORTANT]
-> - The code must be placed inside your `Head.astro` component, within the HTML `<head>`.
+> - The code must be placed inside the HTML `<head>`.
 > - Do not use `is:inline` on this script. Astro must process it through Vite to resolve the `nakas-gk` package correctly.
 > - `import.meta.env.DEV` ensures Nakas is loaded only during development.
 > - `enabled: true` forces the dock to appear, even if local host detection does not recognize your development environment.
-
-If you don't have a dedicated `Head.astro` component, place the same code inside the `<head>` of your main Astro layout.
 
 ### Options
 
