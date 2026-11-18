@@ -7,7 +7,7 @@
     >
   </a>
 
-  <h1>nakas.gk</h1>
+  <hr />
 
   <p>
     <strong>Live SEO audit and import analysis for your React app, right in the browser during development.</strong>
