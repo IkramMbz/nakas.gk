@@ -9,9 +9,9 @@
   <hr />
 
   <p>
-    <strong>Live SEO audit and import analysis for your React app, right in the browser during development.</strong>
+    <strong>Real-time diagnostics for your apps, right in the browser during development.</strong>
     <br>
-    A dock of diagnostic agents that runs 49 SEO checks on every DOM change, detects missing files, undeclared dependencies and import cycles in your project, and generates PWA icons and <code>manifest.json</code> from a single PNG.
+    SEO audits, import analysis, ready-to-use PWA assets, and more!
   </p>
 
   <p>
@@ -32,7 +32,6 @@
 
   <p>
     <a href="#requirements">Requirements</a>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#quick-start">Quick start</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#integration">Integration</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#security">Security</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="#troubleshooting">Troubleshooting</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -42,7 +41,7 @@
   <br>
 </div>
 
-**nakas.gk** by Glitch Kids is a development-only toolkit for React projects. It adds a dock to your running app with a team of agents, the **Nakas**, each one in charge of a single diagnostic task. Nothing is shipped to production.
+**nakas.gk** by Glitch Kids is a development-only devkit for React projects. It adds a dock to your running app with a team of agents, the **Nakas**, each in charge of one diagnostic task: SEO audits, import analysis, PWA asset generation, and more. Nothing is shipped to production.
 
 <!-- Add a screenshot of the Nakas dock here, e.g. ![The Nakas dock](docs/dock.png) -->
 
@@ -79,9 +78,11 @@ The UI lives in a shadow DOM: it inherits no CSS from your page, does not alter 
 pnpm add -D https://github.com/IkramMbz/nakas.gk
 ```
 
-## Quick start
+## Integration
 
-The fastest setup, with Vite and React. The integration has two parts: a **server** plugin that exposes the development API, and a **client** that mounts the dock.
+The integration has two parts: a **server** plugin that exposes the development API, and a **client** that mounts the dock.
+
+### Vite & React
 
 **1. Add the plugin to `vite.config.ts`**
 
@@ -102,18 +103,6 @@ import { Nakas } from "nakas-gk/react";
 ```
 
 Start your dev server: the dock appears. The SEO audit works with the client alone; the Imports panel (Amalia) requires the server part.
-
-## Integration
-
-### Vite
-
-Same as the [Quick start](#quick-start). Without React, mount the dock from your client entry point:
-
-```ts
-import { mountNakas } from "nakas-gk";
-
-void mountNakas();
-```
 
 ### Next.js (App Router)
 
@@ -221,7 +210,7 @@ The following setups follow the same two-part integration (server + client) but 
 
 ### SvelteKit · Nuxt
 
-Both use Vite: add `nakas()` from `nakas-gk/server` to the Vite plugins as shown in the [Vite](#vite) section, then mount the client with `mountNakas()`.
+Both use Vite: add `nakas()` from `nakas-gk/server` to the Vite plugins as shown in the [Vite & React](#vite--react) section, then mount the client with `mountNakas()`.
 
 ### Vue
 
